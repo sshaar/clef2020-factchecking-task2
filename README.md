@@ -65,7 +65,7 @@ The datasets are text files with the information TAB separated. The text encodin
 
 All the verified claims that will be used for both training and test are found in file (data/verified_facts.tsv). This file has information about the verified claims that are obtained from snopes.com in the following format. 
 
-> <NormClaimID> [TAB] <title> [TAB] <NormClaim> [TAB] <body>
+> NormClaimID [TAB] title [TAB] NormClaim [TAB] body
 
 Where: <br>
 * NormClaimID: unique ID for a given NormClaim <br/>
@@ -83,7 +83,7 @@ Tweet details that are used for training or testing.
 It is a text files with the information TAB separated. 
 The text encoding is UTF-8.
 
-> <tweetID> [TAB] <tweet>
+> tweetID [TAB] tweet
 
 Where: <br>
 * tweetID: unique ID for a given tweet <br/>
@@ -100,7 +100,7 @@ such that the verified claim (__NormClaimID__) proves the tweet (__tweetID__).
 It is a text files with the information TAB separated. 
 The text encoding is UTF-8.
 
-> <tweetID> [TAB] 0 [TAB] <NormClaimID> [TAB] <label>
+> tweetID [TAB] 0 [TAB] NormClaimID [TAB] label
 
 Where: <br>
 * tweetID: unique ID for a given tweet. Tweet details found in the queries file. <br/>
@@ -116,7 +116,7 @@ Example:
 
 For this task, the expected results file is a list of claims with the estimated score for check-worthiness. 
 Each line contains a tab-separated line with:
-><TweetID> [TAB] 0 [TAB] <NormClaimID> [TAB] <rank> [TAB] <score> [TAB] <tag>
+>TweetID [TAB] 0 [TAB] NormClaimID [TAB] rank [TAB] score [TAB] tag
 
 Where _TweetID_ is ID of the tweet given in the TweetInfo.queries file, _NormCLaimID_ is ID of the normalized claim found in NormClaims.docs, _score_ is the score given by your model for the pair _TweetID_, _NormCLaimID_ and _rank_ is the rank of the pair given the scores of all possible pairs for a given _TweerID_, and _tag_ is a string identifier used by participants.
  For example:
