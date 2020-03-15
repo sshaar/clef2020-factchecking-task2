@@ -1,5 +1,5 @@
-# CLEF2020-CheckThat! Task 3
-This repository contains the _dataset_ for the [CLEF2020-CheckThat! task 3](https://sites.google.com/view/clef2020-checkthat/tasks/tasks-3-4-evidence-and-factuality?authuser=0).
+# CLEF2020-CheckThat! Task 2
+This repository contains the _dataset_ for the [CLEF2020-CheckThat! task 2](https://sites.google.com/view/clef2020-checkthat/tasks/tasks-3-4-evidence-and-factuality?authuser=0).
 
 It also contains the _format checker, scorer and baselines_ for the task.
 
@@ -8,7 +8,7 @@ FCPD corpus for the CLEF-2020 LAB on "Automatic Identification and Verification 
 Version 1.0: March ?, 2020 (Data and Baseline Release)
 ````
 
-This file contains the basic information regarding the CLEF2020-CheckThat! Task 3 
+This file contains the basic information regarding the CLEF2020-CheckThat! Task 2 
 on evidence retrieval estimation dataset provided for the CLEF2020-CheckThat! Lab
 on "Automatic Identification and Verification of Claims".
 The current TRIAL version (1.0, March ?, 2020) corresponds to the release of a 
@@ -37,7 +37,7 @@ TBA
 
 ## List of Versions
 
-* __v1.0 [2020/03/?]__ - Training data. The training data for task 3 contains (?) Tweets and (?) NormClaims obtained from snopes.com.
+* __v1.0 [2020/03/?]__ - Training data. The training data for task 2 contains (?) Tweets and (?) NormClaims obtained from snopes.com.
 
 ## Contents of the Distribution v1.0
 
@@ -139,7 +139,7 @@ TBA
 
 ### Evaluation metrics
 
-For Task 3 (ranking): R-Precision, Average Precision, Reciprocal Rank, Precision@k and means of these over all verified claims.
+For Task 2 (ranking): R-Precision, Average Precision, Reciprocal Rank, Precision@k and means of these over all verified claims.
 **The official metric for task3, that will be used for the competition ranking is the Mean Average Precision (MAP)**
 
 You can use these repos as reference for the evaluation, https://github.com/joaopalotti/trectools and https://github.com/usnistgov/trec_eval.
@@ -164,7 +164,7 @@ The performance of both baselines will be displayed.
 
 ## Credits
 
-Task 3 Organizers:
+Task 2 Organizers:
 
 * Nikolay <br/>
 
