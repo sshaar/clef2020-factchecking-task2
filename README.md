@@ -73,10 +73,9 @@ Where: <br>
 * Title: title of the document fact checking the verified claim <br/>
 
 Example:
-
-2       "A ""law to separate families"" was enacted prior to April 2018, and the federal government is powerless not to enforce it."       Was the ‘Law to Separate Families’ Passed in 1997 or ‘by Democrats’?r
-222     Former U.S. Vice President Joe Biden owns the largest mansion in his state.     Does Joe Biden Own the Largest Mansion in His State?
-503     "U.S. Sen. Bernie Sanders compared Baltimore to a ""third world country."""     Did U.S. Sen. Bernie Sanders Say Baltimore Was Like a ‘Third World Country’?
+>2       "A ""law to separate families"" was enacted prior to April 2018, and the federal government is powerless not to enforce it."       Was the ‘Law to Separate Families’ Passed in 1997 or ‘by Democrats’?r
+>222     Former U.S. Vice President Joe Biden owns the largest mansion in his state.     Does Joe Biden Own the Largest Mansion in His State?
+>503     "U.S. Sen. Bernie Sanders compared Baltimore to a ""third world country."""     Did U.S. Sen. Bernie Sanders Say Baltimore Was Like a ‘Third World Country’?
 
 ### Queries file:
 
@@ -92,9 +91,9 @@ Where: <br>
 
 Example:
 
-8       im screaming. google featured a hoax article that claims Minecraft is being shut down in 2020 pic.twitter.com/ECRqyfc8mI — Makena Kelly (@kellymakena) January 2, 2020
-335     BREAKING: Footage in Honduras giving cash 2 women & children 2 join the caravan & storm the US border @ election time. Soros? US-backed NGOs? Time to investigate the source! pic.twitter.com/5pEByiGkkN — Rep. Matt Gaetz (@RepMattGaetz) October 17, 2018
-622     y’all really joked around so much that tide put their tide pods in plastic boxes…smh pic.twitter.com/Z44efALcX5 — ㅤnavid (@NavidHasan\_) January 13, 2018
+>8       im screaming. google featured a hoax article that claims Minecraft is being shut down in 2020 pic.twitter.com/ECRqyfc8mI — Makena Kelly (@kellymakena) January 2, 2020
+>335     BREAKING: Footage in Honduras giving cash 2 women & children 2 join the caravan & storm the US border @ election time. Soros? US-backed NGOs? Time to investigate the source! pic.twitter.com/5pEByiGkkN — Rep. Matt Gaetz (@RepMattGaetz) October 17, 2018
+>622     y’all really joked around so much that tide put their tide pods in plastic boxes…smh pic.twitter.com/Z44efALcX5 — ㅤnavid (@NavidHasan\_) January 13, 2018
 
 ### Qrels file:
 
@@ -112,10 +111,10 @@ Where: <br>
 * label: 1 if the pair __tweetID__ and __NormClaimID__ make a pair such that the NormClaim corresponding to __NormClaimID__ proves the tweet corresponding to __tweetID__; 0 otherwise.
 
 Example:
-437 0 2 1
-437 0 3 1
-342 0 333 1
-190 0 626 1
+>437 0 2 1
+>437 0 3 1
+>342 0 333 1
+>190 0 626 1
 
 ## __Results File Format__:
 
@@ -139,7 +138,7 @@ Otherwise the scorer will not score this result file.
 TBA
 
 ## Scorers
-    - [evaluate.py](/evaluate.py) - Returns the metrics needed for evaluation
+[evaluate.py](/evaluate.py) - Returns the metrics needed for evaluation
 
 ### Evaluation metrics
 
