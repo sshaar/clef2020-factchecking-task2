@@ -15,11 +15,11 @@ def build_index(es, facts, fieldnames=["fact", "title"]):
     except:
         pass
 
-    logger.info(f"Building index with fieldnames: {fieldnames}")
     for i, fact in facts.iterrows():
         if not es.exists(index='fact', id=i):
             body = fact.loc[fieldnames].to_dict()
             es.create(index='fact', id=i, body=body)
+    logger.info(f"Built index ({facts.shape[0]} facts) with fieldnames: {fieldnames}")
 
 def get_score(es, claim, search_keys, size=10000):
     facts_len = es.indices.stats()['_all']['total']['indexing']['index_total']
