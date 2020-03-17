@@ -61,7 +61,7 @@ The datasets are text files with the information TAB separated. The text encodin
 
 ### NormClaims:
 
-All the verified claims that will be used for both training and test are found in file (data/verified_facts.qrels.tsv). This file has information about the verified claims that are obtained from snopes.com in the following format.
+All the verified claims that will be used for both training and test are found in file (data/verified_facts.qrels.tsv). This file has information about the verified claims that are obtained from fact checking websites in the following format.
 
 > NormClaimID <TAB> NormClaim <TAB> Title
 
@@ -88,8 +88,7 @@ Where: <br>
 * tweetID: unique ID for a given tweet <br/>
 * tweet: text of the tweet <br/>
 
-Example:
-
+Example: <br/>
 >8       im screaming. google featured a hoax article that claims Minecraft is being shut down in 2020 pic.twitter.com/ECRqyfc8mI — Makena Kelly (@kellymakena) January 2, 2020 <br/>
 >335     BREAKING: Footage in Honduras giving cash 2 women & children 2 join the caravan & storm the US border @ election time. Soros? US-backed NGOs? Time to investigate the source! pic.twitter.com/5pEByiGkkN — Rep. Matt Gaetz (@RepMattGaetz) October 17, 2018 <br/>
 >622     y’all really joked around so much that tide put their tide pods in plastic boxes…smh pic.twitter.com/Z44efALcX5 — ㅤnavid (@NavidHasan\_) January 13, 2018 <br/>
@@ -120,7 +119,7 @@ Example:
 ## __Results File Format__:
 
 For this task, the expected results file is a list of claims with the estimated score for check-worthiness.
-Each line contains a tab-separated line with:
+Each line contains a space-separated line with:
 >TweetID [space] 0 [space] NormClaimID [space] rank [space] score [space] tag
 
 Where: <br>
@@ -150,7 +149,7 @@ TBA
 
 ### Evaluation metrics
 
-For Task 3 (ranking): R-Precision, Average Precision, Reciprocal Rank, Precision@k and means of these over all verified claims.
+For Task 2 (ranking): R-Precision, Average Precision, Reciprocal Rank, Precision@k and means of these over all verified claims.
 **The official metric for task3, that will be used for the competition ranking is the Mean Average Precision (MAP)**
 
 You can use these repos as reference for the evaluation, https://github.com/joaopalotti/trectools and https://github.com/usnistgov/trec_eval.
