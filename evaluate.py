@@ -2,7 +2,7 @@ from trectools import TrecRun, TrecQrel, TrecEval
 import argparse
 import pandas as pd
 
-METRICS = ['map', 'precision']
+METRICS = ['map', 'precision', 'reciprocal_rank']
 MAX_DEPTH = 10000
 METRICS_DEPTH = [1, 3, 5, 10, 20, MAX_DEPTH]
 SCORES_COLUMNS = ['metric', '@depth', 'score']
