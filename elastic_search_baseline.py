@@ -59,8 +59,7 @@ def format_scores(scores):
     formatted_scores = []
     for tweet_id, s in scores.items():
         for fact_id, score in s.items():
-            row = (str(fact_id), 'Q0', str(tweet_id), '1', str(score), 'elasic')
-            #row = (str(tweet_id), 'Q0', str(fact_id), '1', str(score), 'elasic')
+            row = (str(tweet_id), 'Q0', str(fact_id), '1', str(score), 'elasic')
             formatted_scores.append(row)
     formatted_scores_df = pd.DataFrame(formatted_scores, columns=PREDICT_FILE_COLUMNS)
     return formatted_scores_df
