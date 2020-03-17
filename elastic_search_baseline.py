@@ -89,7 +89,7 @@ def main(args):
     scores = get_scores(es, claims, facts,
                         search_keys=args.keys, size=args.size)
     formatted_scores = format_scores(scores)
-    formatted_scores.to_csv(args.predict_file, sep=' ', index=False, header=False)
+    formatted_scores.to_csv(args.predict_file, sep='\t', index=False, header=False)
     logger.info(f"Saved scores from the model in file: {args.predict_file}")
 
 if __name__=='__main__':
