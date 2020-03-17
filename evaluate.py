@@ -38,6 +38,8 @@ def main(args):
     results = TrecEval(prediction, gold_labels)
     metrics = extract_metrics(results, args.metrics)
 
+    metrics.loc[:, '@depth'] = metrics.loc[:, '@depth'].astype(str)
+    metrics.loc[:, '@depth'] = metrics.loc[:, '@depth'].replace(str(MAX_DEPTH), 'all')
     if args.output:
         metrics.to_csv(args.output, sep="\t", index=False)
         logger.info(f"Saved results to {args.output}")
