@@ -26,9 +26,7 @@ __Table of contents:__
 * [Scorers](#scorers)
    * [Evaluation metrics](#evaluation-metrics)
 * [Baselines](#baselines)
-* [Notes](#notes)
 * [Licensing](#licensing)
-* [Citation](#citation)
 * [Credits](#credits)
 
 ## Evaluation Results
@@ -37,7 +35,7 @@ TBA
 
 ## List of Versions
 
-* __v1.0 [2020/03/?]__ - Training data. The training data for task 2 contains (626) Tweets and (518) NormClaims obtained from snopes.com.
+* __v1.0 [2020/03/?]__ - Training data. The training data for task 2 contains (626) Tweets and (518) NormClaims that represents the set of verified claims.
 
 ## Contents of the Distribution v1.0
 
@@ -65,7 +63,7 @@ The datasets are text files with the information TAB separated. The text encodin
 
 All the verified claims that will be used for both training and test are found in file (data/verified_facts.qrels.tsv). This file has information about the verified claims that are obtained from snopes.com in the following format.
 
-> NormClaimID [TAB] NormClaim [TAB] Title
+> NormClaimID <TAB> NormClaim <TAB> Title
 
 Where: <br>
 * NormClaimID: unique ID for a given NormClaim <br/>
@@ -76,6 +74,7 @@ Example:
 >2       "A ""law to separate families"" was enacted prior to April 2018, and the federal government is powerless not to enforce it."       Was the ‘Law to Separate Families’ Passed in 1997 or ‘by Democrats’? <br/>
 >222     Former U.S. Vice President Joe Biden owns the largest mansion in his state.     Does Joe Biden Own the Largest Mansion in His State? <br/>
 >503     "U.S. Sen. Bernie Sanders compared Baltimore to a ""third world country."""     Did U.S. Sen. Bernie Sanders Say Baltimore Was Like a ‘Third World Country’?  <br/>
+> .... <br/>
 
 ### Queries file:
 
@@ -83,7 +82,7 @@ Tweet details that are used for training or testing.
 It is a text files with the information TAB separated.
 The text encoding is UTF-8.
 
-> tweetID [TAB] tweet
+> tweetID <TAB> tweet
 
 Where: <br>
 * tweetID: unique ID for a given tweet <br/>
@@ -94,15 +93,16 @@ Example:
 >8       im screaming. google featured a hoax article that claims Minecraft is being shut down in 2020 pic.twitter.com/ECRqyfc8mI — Makena Kelly (@kellymakena) January 2, 2020 <br/>
 >335     BREAKING: Footage in Honduras giving cash 2 women & children 2 join the caravan & storm the US border @ election time. Soros? US-backed NGOs? Time to investigate the source! pic.twitter.com/5pEByiGkkN — Rep. Matt Gaetz (@RepMattGaetz) October 17, 2018 <br/>
 >622     y’all really joked around so much that tide put their tide pods in plastic boxes…smh pic.twitter.com/Z44efALcX5 — ㅤnavid (@NavidHasan\_) January 13, 2018 <br/>
+> .... <br/>
 
 ### Qrels file:
 
 A file containing information about the pairs of tweet and verified claims;
 such that the verified claim (__NormClaimID__) proves the tweet (__tweetID__).
-It is a text files with the information TAB separated.
+It is a text files with the information space separated.
 The text encoding is UTF-8.
 
-> tweetID [space] 0 [space] NormClaimID [space] label
+> tweetID <space> 0 <space> NormClaimID <space> label
 
 Where: <br>
 * tweetID: unique ID for a given tweet. Tweet details found in the queries file. <br/>
@@ -115,6 +115,7 @@ Example:
 >437 0 3 1 <br/>
 >342 0 333 1 <br/>
 >190 0 626 1 <br/>
+>.... <br/>
 
 ## __Results File Format__:
 
@@ -122,7 +123,14 @@ For this task, the expected results file is a list of claims with the estimated 
 Each line contains a tab-separated line with:
 >TweetID [space] 0 [space] NormClaimID [space] rank [space] score [space] tag
 
-Where _TweetID_ is ID of the tweet given in the TweetInfo.queries file, _NormCLaimID_ is ID of the normalized claim found in NormClaims.docs, _score_ is the score given by your model for the pair _TweetID_, _NormCLaimID_ and _rank_ is the rank of the pair given the scores of all possible pairs for a given _TweerID_, and _tag_ is a string identifier used by participants.
+Where: <br>
+* TweetID: is ID of the tweet given in the TweetInfo.queries file
+* 0: literaly 0.
+* NormCLaimID: is ID of the normalized claim found in NormClaims.docs
+* score: is the score given by your model for the pair _TweetID_ and _NormCLaimID_ 
+* rank: is the rank of the pair given based on the scores of all possible pairs for a given _TweerID_
+* tag: is a string identifier used by participants.
+
  For example:
 >1 0 1 1 0.9056 modelX <br/>
 >1 0 2 2 0.6862 modelX <br/>
@@ -150,10 +158,13 @@ You can use these repos as reference for the evaluation, https://github.com/joao
 ## Baselines
 
 To use the Elastic Search baseline you need to have a locally running Elastic Search instance.
-You can follow [this](https://www.elastic.co/guide/en/elasticsearch/reference/current/getting-started-install.html) article for Elastic Search installation. Alternatively, if you have docker installed, you can run it using only this command:
+You can follow [this](https://www.elastic.co/guide/en/elasticsearch/reference/current/getting-started-install.html) article for Elastic Search installation. You can then run elasticsearch using the following command:
+> /path/to/elasticsearch
+
+Alternatively, if you have docker installed, you can run elasticsearch using this command:
 > docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.6.1
 
-When you have Elastic Search running you can run the baseline script use the following:
+Once you have Elastic Search running you can run the baseline script using the following:
 
 > python3 elastic_search_baseline.py --facts data/verified_facts.docs.tsv --tweets data/train/tweets.queries.tsv --predict-file es-score-prediction.txt <br/>
 
@@ -161,12 +172,9 @@ When you have Elastic Search running you can run the baseline script use the fol
 
   These datasets are free for general research use.
 
-## Citation
-
-
 ## Credits
 
-Task 3 Organizers:
+Task 2 Organizers:
 
 * Nikolay Babulkov, Sofia University <br/>
 
@@ -176,8 +184,7 @@ Task 3 Organizers:
 
 * Preslav Nakov, Qatar Computing Research Institute, HBKU <br/>
 
-Task website: https://sites.google.com/view/clef2020-checkthat/
-**The official rules are published on the website, check them!**
+Task website: https://sites.google.com/view/clef2020-checkthat/tasks/task-2-claim-retrieval
 
 Contact:   clef-factcheck@googlegroups.com
 
