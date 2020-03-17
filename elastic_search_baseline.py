@@ -9,7 +9,7 @@ from lib.logger import logger
 
 PREDICT_FILE_COLUMNS = ['qid', 'Q0', 'docno', 'rank', 'score', 'tag']
 
-def build_index(es, facts, fieldnames=["fact", "title"]):
+def build_index(es, facts, fieldnames):
     try:
         es.indices.delete(index='fact')
     except:
@@ -22,7 +22,6 @@ def build_index(es, facts, fieldnames=["fact", "title"]):
     logger.info(f"Built index ({facts.shape[0]} facts) with fieldnames: {fieldnames}")
 
 def get_score(es, claim, search_keys, size=10000):
-    facts_len = es.indices.stats()['_all']['total']['indexing']['index_total']
     query = {"query": {"multi_match": {"query": claim, "fields": search_keys}}}
     try:
         response = es.search(index="fact", body=query, size=size)
