@@ -50,9 +50,9 @@ We provide the following files:
   * Subfolder [/train](data/train)
   Contains all training data released with the version 1.0
     * [tweets](data/train/tweets.queries.tsv)
-      Contains information for training tweets.
+      Contains information for training tweets (format described in section [Queries file](#queries-file)).
     * [tweet-fact-pairs.qrels](data/train/tweet-fact-pairs.qrels)
-     Contains the correct pairing between the input tweet and verified claims
+     Contains the correct pairing between the input tweet and verified claims (format described in section [Qrels file](#qrels-file))
   * [README.md](README.md) <br/>
     this file
 
@@ -88,7 +88,7 @@ Tweet details that are used for training or testing.
 It is a text files with the information TAB separated.
 The text encoding is UTF-8.
 
-> tweet_id <TAB> tweet_conent
+> tweet_id <TAB> tweet_content
 
 Where: <br>
 
