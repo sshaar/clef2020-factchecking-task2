@@ -1,6 +1,6 @@
 # CLEF2020-CheckThat! Task 2: Verified Claim Retrieval
 
-This repository contains the _dataset_ for the [CLEF2020-CheckThat! task 2](https://sites.google.com/view/clef2020-checkthat/tasks/task-2-claim-retrieval). It also contains the _format checker, scorer and baselines_ for the task.
+This repository contains the _dataset_, _format checker, scorer and baselines_ for the [CLEF2020-CheckThat! task 2](https://sites.google.com/view/clef2020-checkthat/tasks/task-2-claim-retrieval). 
 The task, given an input claim and a set of already verified claim, consists in ranking the already verified claims such that the ones that verify the input claim, or a subclaim in it, are ranked on top.
 
 ````
