@@ -1,20 +1,17 @@
-# CLEF2020-CheckThat! Task 2
+# CLEF2020-CheckThat! Task 2: Verified Claim Retrieval
 
-This repository contains the _dataset_ for the [CLEF2020-CheckThat! task 2](https://sites.google.com/view/clef2020-checkthat/tasks/task-2-claim-retrieval).
-
-It also contains the _format checker, scorer and baselines_ for the task.
+This repository contains the _dataset_ for the [CLEF2020-CheckThat! task 2](https://sites.google.com/view/clef2020-checkthat/tasks/task-2-claim-retrieval). It also contains the _format checker, scorer and baselines_ for the task.
+The task, given an input claim and a set of already verified claim, consists in ranking the already verified claims such that the ones that verify the input claim, or a subclaim in it, are ranked on top.
 
 ````
 FCPD corpus for the CLEF-2020 LAB on "Automatic Identification and Verification of Claims"
-Version 1.0: March ?, 2020 (Data and Baseline Release)
+Version 1.0: March 20th, 2020 (Data and Baseline Release)
 ````
 
-This file contains the basic information regarding the CLEF2020-CheckThat! Task 2
-on evidence retrieval estimation dataset provided for the CLEF2020-CheckThat! Lab
-on "Automatic Identification and Verification of Claims".
-The current TRIAL version (1.0, March ?, 2020) corresponds to the release of a
-part of the training data set.
-The test set will be provided in future versions.
+This file contains the basic information regarding the CLEF2020-CheckThat! Task 2 dataset provided for the CLEF2020-CheckThat! Lab on "Automatic Identification and Verification of Claims".
+The current version of the data (1.0, March 20th, 2020) corresponds to the release of a first batch of the training data set.
+The test set will be released on May 1st, 2020.
+
 All changes and updates on these data sets and tools are reported in Section 1 of this document.
 
 __Table of contents:__
@@ -24,7 +21,7 @@ __Table of contents:__
   - [List of Versions](#list-of-versions)
   - [Contents of the Distribution v1.0](#contents-of-the-distribution-v10)
   - [Data Format](#data-format)
-    - [Facts](#facts)
+    - [Already Verified Claims:](#already-verified-claims)
     - [Queries file](#queries-file)
     - [Qrels file](#qrels-file)
   - [Results File Format](#results-file-format)
@@ -43,7 +40,7 @@ TBA
 
 * __v1.0 [2020/03/?]__ - Training data. The training data for task 2 contains (626) Tweets and (518) NormClaims that represents the set of verified claims.
 
-## Contents of the Distribution v1.0
+## Contents of the Repository
 
 We provide the following files:
 
@@ -55,27 +52,29 @@ We provide the following files:
     * [tweets](data/train/tweets.queries.tsv)
       Contains information for training tweets.
     * [tweet-fact-pairs.qrels](data/train/tweet-fact-pairs.qrels)
-     Contains the correct pairs between tweet and verified claims
+     Contains the correct pairing between the input tweet and verified claims
   * [README.md](README.md) <br/>
     this file
 
 
 ## Data Format
 
-The datasets are text files with the information TAB separated. The text encoding is UTF-8. You will get:
+The datasets are TAB separated csv files.
+The text encoding for all files is UTF-8.
 
-### Facts
+### Already Verified Claims
 
-All the verified claims that will be used for both training and test are found in file (data/verified_facts.qrels.tsv). This file has information about the verified claims that are obtained from fact checking websites in the following format.
+All the verified claims that will be used for both training and test are found in file (data/verified_facts.qrels.tsv).
+The file has the following format:
 
-> fact_id <TAB> fact <TAB> title <TAB> body
+> vclaim_id <TAB> vclaim <TAB> title <TAB> body
 
-Where: <br>
+where <br>
 
-* fact_id: unique ID for a given NormClaim <br/>
-* fact: text of the fact/verified claim <br/>
+* vclaim_id: unique ID of the verified claim <br/>
+* vclaim: text of the verified claim <br/>
 * title: title of the document fact checking the verified claim <br/>
-* body: body text of the document fact checking the verified claim <br/>
+* body: content of the document fact checking the verified claim <br/>
 
 Example:
 >2       "A ""law to separate families"" was enacted prior to April 2018, and the federal government is powerless not to enforce it."       Was the ‘Law to Separate Families’ Passed in 1997 or ‘by Democrats’? "TEXT OF DOCUMENT..." <br/>
@@ -106,21 +105,20 @@ Example: <br/>
 ### Qrels file
 
 A file containing information about the pairs of tweet and verified claims;
-such that the verified claim (__fact_id__) proves the tweet (__tweet_id__).
-It is a text files with the information tab-separated.
-The text encoding is UTF-8.
+such that the verified claim (__vclaim_id__) proves the tweet (__tweet_id__).
+It is a TAB-separated text file.
 
-> tweet_id <TAB> 0 <TAB> fact_id <TAB> relevance
+> tweet_id <TAB> 0 <TAB> vclaim_id <TAB> relevance
 
 
-Where: <br/>
+where: <br/>
 
 * tweet_id: unique ID for a given tweet. Tweet details found in the queries file. <br/>  
 * 0: literally 0.
-* fact_id: unique ID for a given NormClaim. NormClaim details found in the NormClaim file. <br/>
-* relevance: 1 if the pair __tweet_id__ and __fact_id__ make a pair such that the fact corresponding to __fact_id__ proves the tweet corresponding to __tweet_id__; 0 otherwise. 
+* vclaim_id: unique ID for a given verified claim. Details on the verified claim are in file data/verified_facts.qrels.tsv <br/>
+* relevance: 1 if the pair __tweet_id__ and __vclaim_id__ make a pair such that the fact corresponding to __vclaim_id__ proves the tweet corresponding to __tweet_id__; 0 otherwise.
 
-__Note__: The qrels file needs to contains only examples with relevance = 1. It assumes 0 for all others.
+__Note__: The qrels file needs to contain only examples with relevance = 1. It assumes 0 for all others.
 
 Example:
 
@@ -133,26 +131,29 @@ Example:
 ## Results File Format
 
 For this task, the expected results file is a list of claims with the estimated score for check-worthiness.
-Each line contains a tab-separated line with:
->tweet_id <TAB> 0 <TAB> fact_id <TAB> rank <TAB> score <TAB> tag
+Each row has the following format:
+>tweet_id <TAB> 0 <TAB> vclaim_id <TAB> rank <TAB> score <TAB> tag
 
-Where: <br>
+where <br>
+
 * TweetID: is ID of the tweet given in the tweet file
-* 0: literaly 0.
+* 0: literally 0.
+* vclaim_id: is ID of the verified claim found in the verified claims file (data/verified_facts.qrels.tsv)
 * fact_id: is ID of the normalized claim found in NormClaims.docs
 * score: is the score given by your model for the pair _tweet_id_ and _fact_id_ 
 * rank: is the rank of the pair given based on the scores of all possible pairs for a given _tweet_id_
-* tag: is a string identifier used by participants.
+* score: is the score given by your model for the pair _tweet_id_ and _vclaim_id_
+* tag: is a string identifier of the team.
 
  For example:
->359     Q0      303     1       1.1086285       elasic <br/>
->476     Q0      292     1       4.680018        elasic <br/>
->35      Q0      373     1       5.631936        elasic <br/>
->474     Q0      352     1       0.8830346       elasic <br/>
->174     Q0      408     1       0.98045605      elasic <br/>
+>359     Q0      303     1       1.1086285       elastic <br/>
+>476     Q0      292     1       4.680018        elastic <br/>
+>35      Q0      373     1       5.631936        elastic <br/>
+>474     Q0      352     1       0.8830346       elastic <br/>
+>174     Q0      408     1       0.98045605      elastic <br/>
 >...
 
-Your result file **MUST contain at most 1,000 NormClaims per tweet** from the respective input file.
+Your result file **MUST have at most 1,000 rows (each one referring to one verified claim) per input tweet**.
 Otherwise the scorer will not score this result file.
 
 ## Format checkers
@@ -168,8 +169,8 @@ Example for using the evaluation script:
 
 ### Evaluation metrics
 
-For Task 2 (ranking): R-Precision, Average Precision, Reciprocal Rank, Precision@k and means of these over all verified claims.
 **The official metric for task2, that will be used for the competition ranking is the Mean Average Precision (MAP)**
+The scorer reports also R-Precision, Average Precision, Reciprocal Rank, Precision@k and means of these over all verified claims.
 
 You can use these repos as reference for the evaluation, https://github.com/joaopalotti/trectools and https://github.com/usnistgov/trec_eval.
 
@@ -192,7 +193,7 @@ Once you have Elastic Search running you can run the baseline script using the f
 
 ## Credits
 
-Task 2 Organizers:
+Task Organizers:
 
 * Nikolay Babulkov, Sofia University <br/>
 
