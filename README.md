@@ -24,10 +24,10 @@ __Table of contents:__
   - [List of Versions](#list-of-versions)
   - [Contents of the Distribution v1.0](#contents-of-the-distribution-v10)
   - [Data Format](#data-format)
-    - [Facts:](#facts)
-    - [Queries file:](#queries-file)
-    - [Qrels file:](#qrels-file)
-  - [__Results File Format__:](#results-file-format)
+    - [Facts](#facts)
+    - [Queries file](#queries-file)
+    - [Qrels file](#qrels-file)
+  - [Results File Format](#results-file-format)
   - [Format checkers](#format-checkers)
   - [Scorers](#scorers)
     - [Evaluation metrics](#evaluation-metrics)
@@ -64,25 +64,26 @@ We provide the following files:
 
 The datasets are text files with the information TAB separated. The text encoding is UTF-8. You will get:
 
-### Facts:
+### Facts
 
 All the verified claims that will be used for both training and test are found in file (data/verified_facts.qrels.tsv). This file has information about the verified claims that are obtained from fact checking websites in the following format.
 
-> fact_id <TAB> fact <TAB> title
+> fact_id <TAB> fact <TAB> title <TAB> body
 
 Where: <br>
 
 * fact_id: unique ID for a given NormClaim <br/>
 * fact: text of the fact/verified claim <br/>
 * title: title of the document fact checking the verified claim <br/>
+* body: body text of the document fact checking the verified claim <br/>
 
 Example:
->2       "A ""law to separate families"" was enacted prior to April 2018, and the federal government is powerless not to enforce it."       Was the ‘Law to Separate Families’ Passed in 1997 or ‘by Democrats’? <br/>
->222     Former U.S. Vice President Joe Biden owns the largest mansion in his state.     Does Joe Biden Own the Largest Mansion in His State? <br/>
->503     "U.S. Sen. Bernie Sanders compared Baltimore to a ""third world country."""     Did U.S. Sen. Bernie Sanders Say Baltimore Was Like a ‘Third World Country’?  <br/>
+>2       "A ""law to separate families"" was enacted prior to April 2018, and the federal government is powerless not to enforce it."       Was the ‘Law to Separate Families’ Passed in 1997 or ‘by Democrats’? "TEXT OF DOCUMENT..." <br/>
+>222     Former U.S. Vice President Joe Biden owns the largest mansion in his state.     Does Joe Biden Own the Largest Mansion in His State? "TEXT OF DOCUMENT..." <br/>
+>503     "U.S. Sen. Bernie Sanders compared Baltimore to a ""third world country."""     Did U.S. Sen. Bernie Sanders Say Baltimore Was Like a ‘Third World Country’? "TEXT OF DOCUMENT..." <br/>
 > .... <br/>
 
-### Queries file:
+### Queries file
 
 Tweet details that are used for training or testing.
 It is a text files with the information TAB separated.
@@ -102,7 +103,7 @@ Example: <br/>
 >...
 
 
-### Qrels file:
+### Qrels file
 
 A file containing information about the pairs of tweet and verified claims;
 such that the verified claim (__fact_id__) proves the tweet (__tweet_id__).
@@ -129,7 +130,7 @@ Example:
 >137     0       504     1 <br/>
 >...
 
-## __Results File Format__:
+## Results File Format
 
 For this task, the expected results file is a list of claims with the estimated score for check-worthiness.
 Each line contains a tab-separated line with:
