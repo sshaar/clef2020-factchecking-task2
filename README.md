@@ -20,7 +20,7 @@ __Table of contents:__
 - [CLEF2020-CheckThat! Task 2](#clef2020-checkthat-task-2)
   - [Evaluation Results](#evaluation-results)
   - [List of Versions](#list-of-versions)
-  - [Contents of the Distribution v1.0](#contents-of-the-distribution-v10)
+  - [Contents of the Repository](#contents-of-the-repository)
   - [Data Format](#data-format)
     - [Already Verified Claims:](#already-verified-claims)
     - [Queries file](#queries-file)
