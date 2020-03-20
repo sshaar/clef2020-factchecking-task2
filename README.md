@@ -86,13 +86,12 @@ Example:
 
 ### Queries file
 
-Tweet details that are used for training or testing.
-It is a text files with the information TAB separated.
-The text encoding is UTF-8.
+TAB separated file with the input tweets. 
+A row of the file has the following format
 
 > tweet_id <TAB> tweet_content
 
-Where: <br>
+where: <br>
 
 * tweet_id: unique ID for a given tweet <br/>
 * tweet_content: text of the tweet <br/>
