@@ -45,13 +45,13 @@ TBA
 We provide the following files:
 
 * Main folder: [data](data)
-  * [verified_facts.qrels.tsv](data/verified_facts.qrels.tsv) <br/>
+  * [verified_claims.qrels.tsv](data/verified_claims.qrels.tsv) <br/>
   Contains all the verified claims used for fact checking released with the version 1.0
   * Subfolder [/train](data/train)
   Contains all training data released with the version 1.0
     * [tweets](data/train/tweets.queries.tsv)
       Contains information for training tweets (format described in section [Queries file](#queries-file)).
-    * [tweet-fact-pairs.qrels](data/train/tweet-fact-pairs.qrels)
+    * [tweet-vclaim-pairs.qrels](data/train/tweet-vclaim-pairs.qrels)
      Contains the correct pairing between the input tweet and verified claims (format described in section [Qrels file](#qrels-file))
   * [README.md](README.md) <br/>
     this file
@@ -64,7 +64,7 @@ The text encoding for all files is UTF-8.
 
 ### Already Verified Claims
 
-All the verified claims that will be used for both training and test are found in file (data/verified_facts.qrels.tsv).
+All the verified claims that will be used for both training and test are found in file (data/verified_claims.qrels.tsv).
 The file has the following format:
 
 > vclaim_id <TAB> vclaim <TAB> title <TAB> body
@@ -140,9 +140,9 @@ where <br>
 
 * TweetID: is ID of the tweet given in the tweet file
 * 0: literally 0.
-* vclaim_id: is ID of the verified claim found in the verified claims file (data/verified_facts.qrels.tsv)
-* fact_id: is ID of the normalized claim found in NormClaims.docs
-* score: is the score given by your model for the pair _tweet_id_ and _fact_id_
+* vclaim_id: is ID of the verified claim found in the verified claims file (data/verified_claims.qrels.tsv)
+* vclaim_id: is ID of the normalized claim found in NormClaims.docs
+* score: is the score given by your model for the pair _tweet_id_ and _vclaim_id_
 * rank: is the rank of the pair given based on the scores of all possible pairs for a given _tweet_id_
 * score: is the score given by your model for the pair _tweet_id_ and _vclaim_id_
 * tag: is a string identifier of the team.
@@ -177,7 +177,7 @@ If you have [pipenv](https://github.com/pypa/pipenv) installed, one way to do it
 [evaluate.py](/evaluate.py) - Returns the metrics needed for evaluation
 Example for using the evaluation script:
 
-> python3 evaluate.py -s \<prediction-scores-file\> -g data/train/tweet-fact-pairs.qrels <br/>
+> python3 evaluate.py -s \<prediction-scores-file\> -g data/train/tweet-vclaim-pairs.qrels <br/>
 
 ## Baseline
 
@@ -190,7 +190,7 @@ Alternatively, if you have docker installed, you can run elasticsearch using thi
 
 Once you have Elastic Search running you can run the baseline script using the following:
 
-> python3 elastic_search_baseline.py --facts data/verified_facts.docs.tsv --tweets data/train/tweets.queries.tsv --predict-file <prediction-scores-file> <br/>
+> python3 elastic_search_baseline.py --vclaims data/verified_claims.docs.tsv --tweets data/train/tweets.queries.tsv --predict-file <prediction-scores-file> <br/>
 
 ## Licensing
 
