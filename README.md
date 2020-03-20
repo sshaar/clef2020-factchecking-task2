@@ -38,7 +38,7 @@ TBA
 
 ## List of Versions
 
-* __v1.0 [2020/03/?]__ - Training data. The training data for task 2 contains (626) Tweets and (518) NormClaims that represents the set of verified claims.
+* __v1.0 [2020/03/20]__ - Training data. The training data for task 2 contains (626) Tweets and (518) NormClaims that represents the set of verified claims.
 
 ## Contents of the Repository
 
