@@ -6,7 +6,7 @@ The goal of the task is to build a tool to support journalists fact-checkers whe
 
 ````
 FCPD corpus for the CLEF-2020 LAB on "Automatic Identification and Verification of Claims"
-Version 1.0: March 20th, 2020 (Data and Baseline Release)
+Version 1.0: March 20th, 2020 (Training set batch 1 and Baseline Released)
 ````
 
 This file contains the basic information regarding the CLEF2020-CheckThat! Task 2 dataset provided for the CLEF2020-CheckThat! Lab on "Automatic Identification and Verification of Claims".
@@ -38,7 +38,7 @@ TBA
 
 ## List of Versions
 
-* __v1.0 [2020/03/20]__ - Training data. The training data for task 2 contains (626) Tweets and (518) already verified claims.
+* __v1.0 [2020/03/20]__ - Batch 1 of the training data: 626 Tweets and (518) already verified claims.
 
 ## Contents of the Repository
 
