@@ -26,8 +26,7 @@ __Table of contents:__
     - [Qrels file](#qrels-file)
   - [Results File Format](#results-file-format)
   - [Format checkers](#format-checkers)
-  - [Scorers](#scorers)
-    - [Evaluation metrics](#evaluation-metrics)
+  - [Evaluation metrics and Scorers](#evaluation-metrics-and-scorers)
   - [Baseline](#baseline)
   - [Licensing](#licensing)
   - [Credits](#credits)
@@ -160,7 +159,12 @@ Otherwise the scorer will not score this result file.
 
 TBA
 
-## Scorers
+## Evaluation metrics and Scorers
+
+**The official metric for task2, that will be used for the competition ranking is the Mean Average Precision (MAP), more specifically MAP@5.**
+The scorer reports also R-Precision, Average Precision, Reciprocal Rank, Precision@k and means of these over all verified claims.
+
+You can use these repos as reference for the evaluation, https://github.com/joaopalotti/trectools and https://github.com/usnistgov/trec_eval.
 
 Before using the scorers or trying the baseline, make sure you have all python packages in requirements.txt installed. 
 If you have [pipenv](https://github.com/pypa/pipenv) installed, one way to do it is by using the following command:
@@ -171,13 +175,6 @@ If you have [pipenv](https://github.com/pypa/pipenv) installed, one way to do it
 Example for using the evaluation script:
 
 > python3 evaluate.py -s \<prediction-scores-file\> -g data/train/tweet-fact-pairs.qrels <br/>
-
-### Evaluation metrics
-
-**The official metric for task2, that will be used for the competition ranking is the Mean Average Precision (MAP), more specifically MAP@5.**
-The scorer reports also R-Precision, Average Precision, Reciprocal Rank, Precision@k and means of these over all verified claims.
-
-You can use these repos as reference for the evaluation, https://github.com/joaopalotti/trectools and https://github.com/usnistgov/trec_eval.
 
 ## Baseline
 
