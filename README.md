@@ -1,8 +1,8 @@
 # CLEF2020-CheckThat! Task 2: Verified Claim Retrieval
 
-This repository contains the _dataset_, _format checker, scorer and baselines_ for the [CLEF2020-CheckThat! task 2](https://sites.google.com/view/clef2020-checkthat/tasks/task-2-claim-retrieval). 
+This repository contains the _dataset_, _format checker, scorer and baselines_ for the [CLEF2020-CheckThat! task 2](https://sites.google.com/view/clef2020-checkthat/tasks/task-2-claim-retrieval).
 The task, given an input claim and a set of already verified claims, consists in ranking the already verified claims such that the ones that verify the input claim, or a subclaim in it, are ranked on top. <br>
-The goal of the task is to build a tool to support journalists fact-checkers when trying to determine whether a claim has been already fact-checked. 
+The goal of the task is to build a tool to support journalists fact-checkers when trying to determine whether a claim has been already fact-checked.
 
 ````
 FCPD corpus for the CLEF-2020 LAB on "Automatic Identification and Verification of Claims"
@@ -115,7 +115,7 @@ It is a TAB-separated text file.
 
 where: <br/>
 
-* tweet_id: unique ID for a given tweet. Tweet details found in the queries file. <br/>  
+* tweet_id: unique ID for a given tweet. Tweet details found in the queries file. <br/>
 * 0: literally 0.
 * vclaim_id: unique ID for a given verified claim. Details on the verified claim are in file data/verified_facts.qrels.tsv <br/>
 * relevance: 1 if the pair __tweet_id__ and __vclaim_id__ make a pair such that the fact corresponding to __vclaim_id__ proves the tweet corresponding to __tweet_id__; 0 otherwise.
@@ -142,7 +142,7 @@ where <br>
 * 0: literally 0.
 * vclaim_id: is ID of the verified claim found in the verified claims file (data/verified_facts.qrels.tsv)
 * fact_id: is ID of the normalized claim found in NormClaims.docs
-* score: is the score given by your model for the pair _tweet_id_ and _fact_id_ 
+* score: is the score given by your model for the pair _tweet_id_ and _fact_id_
 * rank: is the rank of the pair given based on the scores of all possible pairs for a given _tweet_id_
 * score: is the score given by your model for the pair _tweet_id_ and _vclaim_id_
 * tag: is a string identifier of the team.
@@ -169,7 +169,7 @@ The scorer reports also R-Precision, Average Precision, Reciprocal Rank, Precisi
 
 You can use these repos as reference for the evaluation, https://github.com/joaopalotti/trectools and https://github.com/usnistgov/trec_eval.
 
-Before using the scorers or trying the baseline, make sure you have all python packages in requirements.txt installed. 
+Before using the scorers or trying the baseline, make sure you have all python packages in requirements.txt installed.
 If you have [pipenv](https://github.com/pypa/pipenv) installed, one way to do it is by using the following command:
 > pipenv install -r requirements.txt --skip-lock <br>
 > pipenv shell
