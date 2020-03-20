@@ -169,7 +169,7 @@ Example for using the evaluation script:
 
 ### Evaluation metrics
 
-**The official metric for task2, that will be used for the competition ranking is the Mean Average Precision (MAP)**
+**The official metric for task2, that will be used for the competition ranking is the Mean Average Precision (MAP), more specifically MAP@5.**
 The scorer reports also R-Precision, Average Precision, Reciprocal Rank, Precision@k and means of these over all verified claims.
 
 You can use these repos as reference for the evaluation, https://github.com/joaopalotti/trectools and https://github.com/usnistgov/trec_eval.
