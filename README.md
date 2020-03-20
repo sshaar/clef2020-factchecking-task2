@@ -101,6 +101,8 @@ Example: <br/>
 >622     y’all really joked around so much that tide put their tide pods in plastic boxes…smh pic.twitter.com/Z44efALcX5 — ㅤnavid (@NavidHasan\_) January 13, 2018 <br/>
 >...
 
+__Note__: tweet_id doesn't corresponds to the id the tweet has on the Twitter platform.
+
 
 ### Qrels file
 
