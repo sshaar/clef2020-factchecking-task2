@@ -117,8 +117,8 @@ where: <br/>
 
 * tweet_id: unique ID for a given tweet. Tweet details found in the queries file. <br/>
 * 0: literally 0.
-* vclaim_id: unique ID for a given verified claim. Details on the verified claim are in file data/verified_facts.qrels.tsv <br/>
-* relevance: 1 if the pair __tweet_id__ and __vclaim_id__ make a pair such that the fact corresponding to __vclaim_id__ proves the tweet corresponding to __tweet_id__; 0 otherwise.
+* vclaim_id: unique ID for a given verified claim. Details on the verified claim are in file data/verified_claims.qrels.tsv <br/>
+* relevance: 1 if the verified claim corresponding to __vclaim_id__ proves the tweet corresponding to __tweet_id__; 0 otherwise.
 
 __Note__: The qrels file needs to contain only examples with relevance = 1. It assumes 0 for all others.
 
