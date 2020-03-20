@@ -25,7 +25,7 @@ __Table of contents:__
     - [Already Verified Claims:](#already-verified-claims)
     - [Queries file](#queries-file)
     - [Qrels file](#qrels-file)
-    - [Results File Format](#results-file-format)
+    - [Results File](#results-file)
   - [Format checkers](#format-checkers)
   - [Evaluation metrics and Scorers](#evaluation-metrics-and-scorers)
   - [Baseline](#baseline)
@@ -107,21 +107,18 @@ __Note__: tweet_id doesn't corresponds to the id the tweet has on the Twitter pl
 
 ### Qrels file
 
-A file containing information about the pairs of tweet and verified claims;
-such that the verified claim (__vclaim_id__) proves the tweet (__tweet_id__).
-It is a TAB-separated text file.
+A TAB-separated file containing all the pairs of tweet and verified claims such that the verified claim (__vclaim_id__) proves the tweet (__tweet_id__).
 
 > tweet_id <TAB> 0 <TAB> vclaim_id <TAB> relevance
-
 
 where: <br/>
 
 * tweet_id: unique ID for a given tweet. Tweet details found in the queries file. <br/>
-* 0: literally 0.
+* 0: literally 0 (this column is needed to comply with the TREC format).
 * vclaim_id: unique ID for a given verified claim. Details on the verified claim are in file data/verified_claims.qrels.tsv <br/>
-* relevance: 1 if the verified claim corresponding to __vclaim_id__ proves the tweet corresponding to __tweet_id__; 0 otherwise.
+* relevance: 1 if the verified claim whose id is __vclaim_id__ proves the tweet with id __tweet_id__; 0 otherwise.
 
-__Note__: The qrels file needs to contain only examples with relevance = 1. It assumes 0 for all others.
+__Note__: In the qrels file only pairs with relevance = 1 are reported. Relevance = 0 is assumed for all pairs not appearing in the qrels file.
 
 Example:
 
@@ -131,18 +128,18 @@ Example:
 >137     0       504     1 <br/>
 >...
 
-### Results File Format
+### Results File
 
-For this task, the expected results file is a list of claims with the estimated score for check-worthiness.
+Each row of the result file is related to a pair _tweet_ and _verified_claim_ and intuitively indicates the ranking of the verified claim with respect to the input tweet. 
 Each row has the following format:
 >tweet_id <TAB> 0 <TAB> vclaim_id <TAB> rank <TAB> score <TAB> tag
 
 where <br>
 
-* TweetID: is ID of the tweet given in the tweet file
-* 0: literally 0.
-* vclaim_id: is ID of the verified claim found in the verified claims file (data/verified_claims.qrels.tsv)
-* rank: is the rank of the pair given based on the scores of all possible pairs for a given _tweet_id_
+* tweet_id: ID of the tweet as given in the tweet file
+* 0: literally 0 (this column is needed to comply with the TREC format).
+* vclaim_id: ID of the verified claim as given in the verified claims file (data/verified_claims.qrels.tsv)
+* rank: rank of this verified claim with respect to all other verified claims for the given _tweet_id_
 * score: is the score given by your model for the pair _tweet_id_ and _vclaim_id_
 * tag: is a string identifier of the team.
 
@@ -163,18 +160,18 @@ TBA
 
 ## Evaluation metrics and Scorers
 
-**The official metric for task2, that will be used for the competition ranking is the Mean Average Precision (MAP), more specifically MAP@5.**
+**The official metric for the task is Mean Average Precision (MAP), more specifically MAP@5.**
 The scorer reports also R-Precision, Average Precision, Reciprocal Rank, Precision@k and means of these over all verified claims.
 
 You can use these repos as reference for the evaluation, https://github.com/joaopalotti/trectools and https://github.com/usnistgov/trec_eval.
 
-Before using the scorers or trying the baseline, make sure you have all python packages in requirements.txt installed.
+Before using the scorers or running the baseline, make sure you have all python packages in requirements.txt installed.
 If you have [pipenv](https://github.com/pypa/pipenv) installed, one way to do it is by using the following command:
 > pipenv install -r requirements.txt --skip-lock <br>
 > pipenv shell
 
-[evaluate.py](/evaluate.py) - Returns the metrics needed for evaluation
-Example for using the evaluation script:
+The scripts [evaluate.py](/evaluate.py) evaluates a submission. 
+Example:
 
 > python3 evaluate.py -s \<prediction-scores-file\> -g data/train/tweet-vclaim-pairs.qrels <br/>
 
