@@ -162,6 +162,11 @@ TBA
 
 ## Scorers
 
+Before using the scorers or trying the baseline, make sure you have all python packages in requirements.txt installed. 
+If you have [pipenv](https://github.com/pypa/pipenv) installed, one way to do it is by using the following command:
+> pipenv install -r requirements.txt --skip-lock <br>
+> pipenv shell
+
 [evaluate.py](/evaluate.py) - Returns the metrics needed for evaluation
 Example for using the evaluation script:
 
@@ -175,11 +180,6 @@ The scorer reports also R-Precision, Average Precision, Reciprocal Rank, Precisi
 You can use these repos as reference for the evaluation, https://github.com/joaopalotti/trectools and https://github.com/usnistgov/trec_eval.
 
 ## Baseline
-
-Before trying the baseline, make sure you have all python packages in requirements.txt installed. 
-If you have [pipenv](https://github.com/pypa/pipenv) installed, one way to do it is by using the following command:
-> pipenv install -r requirements.txt --skip-lock
-> pipenv shell
 
 To use the Elastic Search baseline you need to have a locally running Elastic Search instance.
 You can follow [this](https://www.elastic.co/guide/en/elasticsearch/reference/current/getting-started-install.html) article for Elastic Search installation. You can then run elasticsearch using the following command:
