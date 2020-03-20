@@ -45,7 +45,7 @@ TBA
 We provide the following files:
 
 * Main folder: [data](data)
-  * [verified_claims.qrels.tsv](data/verified_claims.qrels.tsv) <br/>
+  * [verified_claims.docs.tsv](data/verified_claims.docs.tsv) <br/>
   Contains all the verified claims used for fact checking released with the version 1.0
   * Subfolder [/train](data/train)
   Contains all training data released with the version 1.0
