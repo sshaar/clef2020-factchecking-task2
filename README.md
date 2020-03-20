@@ -59,7 +59,7 @@ We provide the following files:
 
 ## Data Format
 
-The format used in the task is inspired from [Text REtrieval Conference (TREC)](https://trec.nist.gov/)'s campaigns for information retrieval. [Link](https://github.com/joaopalotti/trectools#file-formats) containing more information for the format.
+The format used in the task is inspired from [Text REtrieval Conference (TREC)](https://trec.nist.gov/)'s campaigns for information retrieval (a description of the TREC format can be found [here](https://github.com/joaopalotti/trectools#file-formats)).
 
 The datasets are TAB separated csv files.
 The text encoding for all files is UTF-8.
