@@ -50,9 +50,9 @@ We provide the following files:
   * Subfolder [/train](data/train)
   Contains all training data released with the version 1.0
     * [tweets](data/train/tweets.queries.tsv)
-      Contains information for training tweets (format described in section [Queries file](#queries-file)).
+      Contains information for training tweets (file format described in section [Queries file](#queries-file)).
     * [tweet-vclaim-pairs.qrels](data/train/tweet-vclaim-pairs.qrels)
-     Contains the correct pairing between the input tweet and verified claims (format described in section [Qrels file](#qrels-file))
+     Contains the correct pairing between the input tweet and verified claims (file format described in section [Qrels file](#qrels-file))
   * [README.md](README.md) <br/>
     this file
 
