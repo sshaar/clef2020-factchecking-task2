@@ -143,8 +143,6 @@ where <br>
 * TweetID: is ID of the tweet given in the tweet file
 * 0: literally 0.
 * vclaim_id: is ID of the verified claim found in the verified claims file (data/verified_claims.qrels.tsv)
-* vclaim_id: is ID of the normalized claim found in NormClaims.docs
-* score: is the score given by your model for the pair _tweet_id_ and _vclaim_id_
 * rank: is the rank of the pair given based on the scores of all possible pairs for a given _tweet_id_
 * score: is the score given by your model for the pair _tweet_id_ and _vclaim_id_
 * tag: is a string identifier of the team.
