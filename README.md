@@ -25,7 +25,7 @@ __Table of contents:__
     - [Already Verified Claims:](#already-verified-claims)
     - [Queries file](#queries-file)
     - [Qrels file](#qrels-file)
-  - [Results File Format](#results-file-format)
+    - [Results File Format](#results-file-format)
   - [Format checkers](#format-checkers)
   - [Evaluation metrics and Scorers](#evaluation-metrics-and-scorers)
   - [Baseline](#baseline)
@@ -128,7 +128,7 @@ Example:
 >137     0       504     1 <br/>
 >...
 
-## Results File Format
+### Results File Format
 
 For this task, the expected results file is a list of claims with the estimated score for check-worthiness.
 Each row has the following format:
