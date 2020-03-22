@@ -70,14 +70,13 @@ The text encoding for all files is UTF-8.
 All the verified claims that will be used for both training and test are found in file (data/verified_claims.qrels.tsv).
 The file has the following format:
 
-> vclaim_id <TAB> vclaim <TAB> title <TAB> body
+> vclaim_id <TAB> vclaim <TAB> title 
 
 where <br>
 
 * vclaim_id: unique ID of the verified claim <br/>
 * vclaim: text of the verified claim <br/>
 * title: title of the document fact checking the verified claim <br/>
-* body: content of the document fact checking the verified claim <br/>
 
 Example:
 >2       "A ""law to separate families"" was enacted prior to April 2018, and the federal government is powerless not to enforce it."       Was the ‘Law to Separate Families’ Passed in 1997 or ‘by Democrats’? "TEXT OF DOCUMENT..." <br/>
