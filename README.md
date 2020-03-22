@@ -79,10 +79,13 @@ where <br>
 * title: title of the document fact checking the verified claim <br/>
 
 Example:
->2       "A ""law to separate families"" was enacted prior to April 2018, and the federal government is powerless not to enforce it."       Was the ‘Law to Separate Families’ Passed in 1997 or ‘by Democrats’? "TEXT OF DOCUMENT..." <br/>
->222     Former U.S. Vice President Joe Biden owns the largest mansion in his state.     Does Joe Biden Own the Largest Mansion in His State? "TEXT OF DOCUMENT..." <br/>
->503     "U.S. Sen. Bernie Sanders compared Baltimore to a ""third world country."""     Did U.S. Sen. Bernie Sanders Say Baltimore Was Like a ‘Third World Country’? "TEXT OF DOCUMENT..." <br/>
-> .... <br/>
+
+| vclaim_id | vclaim | title |
+| --- | --- | --- |
+| 2 | "A ""law to separate families"" was enacted prior to April 2018, and the federal government is powerless not to enforce it." | Was the ‘Law to Separate Families’ Passed in 1997 or ‘by Democrats’? |
+| 222 | Former U.S. Vice President Joe Biden owns the largest mansion in his state. | Does Joe Biden Own the Largest Mansion in His State? |
+| 503 | "U.S. Sen. Bernie Sanders compared Baltimore to a ""third world country."""  | Did U.S. Sen. Bernie Sanders Say Baltimore Was Like a ‘Third World Country’? |
+| ... |
 
 ### Queries file
 
@@ -97,10 +100,12 @@ where: <br>
 * tweet_content: text of the tweet <br/>
 
 Example: <br/>
->8       im screaming. google featured a hoax article that claims Minecraft is being shut down in 2020 pic.twitter.com/ECRqyfc8mI — Makena Kelly (@kellymakena) January 2, 2020 <br/>
->335     BREAKING: Footage in Honduras giving cash 2 women & children 2 join the caravan & storm the US border @ election time. Soros? US-backed NGOs? Time to investigate the source! pic.twitter.com/5pEByiGkkN — Rep. Matt Gaetz (@RepMattGaetz) October 17, 2018 <br/>
->622     y’all really joked around so much that tide put their tide pods in plastic boxes…smh pic.twitter.com/Z44efALcX5 — ㅤnavid (@NavidHasan\_) January 13, 2018 <br/>
->...
+| tweet_id | tweet_content |
+| --- | --- |
+| 8 | im screaming. google featured a hoax article that claims Minecraft is being shut down in 2020 pic.twitter.com/ECRqyfc8mI — Makena Kelly (@kellymakena) January 2, 2020 | 
+| 335  | BREAKING: Footage in Honduras giving cash 2 women & children 2 join the caravan & storm the US border @ election time. Soros? US-backed NGOs? Time to investigate the source! pic.twitter.com/5pEByiGkkN — Rep. Matt Gaetz (@RepMattGaetz) October 17, 2018 |
+| 622 | y’all really joked around so much that tide put their tide pods in plastic boxes…smh pic.twitter.com/Z44efALcX5 — ㅤnavid (@NavidHasan\_) January 13, 2018 |
+|...
 
 __Note__: tweet_id doesn't corresponds to the id the tweet has on the Twitter platform.
 
@@ -121,12 +126,13 @@ where: <br/>
 __Note__: In the qrels file only pairs with relevance = 1 are reported. Relevance = 0 is assumed for all pairs not appearing in the qrels file.
 
 Example:
-
->422     0       92      1 <br/>
->538     0       454     1 <br/>
->221     0       12      1 <br/>
->137     0       504     1 <br/>
->...
+| tweet_id | 0 | vclaim_id | relevance |
+|---|---|---|---|
+| 422 | 0 | 92 | 1 |
+| 538 | 0 | 454 | 1 |
+| 221 | 0 | 12  | 1 |
+| 137 | 0 | 504 | 1 |
+|... |
 
 ### Results File
 
@@ -136,20 +142,22 @@ Each row has the following format:
 
 where <br>
 
-* tweet_id: ID of the tweet as given in the tweet file
-* 0: literally 0 (this column is needed to comply with the TREC format).
-* vclaim_id: ID of the verified claim as given in the verified claims file (data/verified_claims.qrels.tsv)
-* rank: rank of this verified claim with respect to all other verified claims for the given _tweet_id_
+* tweet_id: is ID of the tweet given in the tweet file
+* Q0: is not a meaningful column (it is needed to comply with the TREC format).
+* vclaim_id: is ID of the verified claim found in the verified claims file (data/verified_claims.qrels.tsv)
+* rank: is the rank of the pair given based on the scores of all possible pairs for a given _tweet_id_. (Not taken into account when calculating metrics. Always equal to 1)
 * score: is the score given by your model for the pair _tweet_id_ and _vclaim_id_
 * tag: is a string identifier of the team.
 
  For example:
->359     Q0      303     1       1.1086285       elastic <br/>
->476     Q0      292     1       4.680018        elastic <br/>
->35      Q0      373     1       5.631936        elastic <br/>
->474     Q0      352     1       0.8830346       elastic <br/>
->174     Q0      408     1       0.98045605      elastic <br/>
->...
+|tweet_id  |  Q0  |  vclaim_id  |  rank  |  score  | tag | 
+| --- | --- | --- | --- | --- | --- |
+| 359 | Q0 | 303  | 1 | 1.1086285 | elastic |
+| 476|Q0| 292|1|  4.680018|   elastic
+| 35| Q0| 373|1|  5.631936|   elastic
+| 474|Q0| 352|1|  0.8830346|  elastic
+| 174|Q0| 408|1|  0.98045605| elastic
+| ...
 
 Your result file **MUST have at most 1,000 rows (each one referring to one verified claim) per input tweet**.
 Otherwise the scorer will not score this result file.
