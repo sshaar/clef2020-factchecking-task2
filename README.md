@@ -17,15 +17,16 @@ All changes and updates on these data sets and tools are reported in Section 1 o
 
 __Table of contents:__
 
-- [CLEF2020-CheckThat! Task 2](#clef2020-checkthat-task-2)
+- [CLEF2020-CheckThat! Task 2: Verified Claim Retrieval](#clef2020-checkthat-task-2-verified-claim-retrieval)
   - [Evaluation Results](#evaluation-results)
   - [List of Versions](#list-of-versions)
   - [Contents of the Repository](#contents-of-the-repository)
   - [Data Format](#data-format)
-    - [Already Verified Claims:](#already-verified-claims)
+    - [Already Verified Claims](#already-verified-claims)
     - [Queries file](#queries-file)
     - [Qrels file](#qrels-file)
     - [Results File](#results-file)
+  - [Example Ranking](#example-ranking)
   - [Format checkers](#format-checkers)
   - [Evaluation metrics and Scorers](#evaluation-metrics-and-scorers)
   - [Baseline](#baseline)
@@ -153,6 +154,28 @@ where <br>
 
 Your result file **MUST have at most 1,000 rows (each one referring to one verified claim) per input tweet**.
 Otherwise the scorer will not score this result file.
+
+## Example Ranking
+
+The following is an example ranking of verified claims for given tweet.
+
+Let's take random tweet from the dataset:
+> __tweet_id__:  251 <br>
+> __tweet_content__: A big scandal at @ABC News. They got caught using really gruesome FAKE footage of the Turks bombing in Syria. A real disgrace. Tomorrow they will ask softball questions to Sleepy Joe Biden’s son, Hunter, like why did Ukraine & China pay you millions when you knew nothing? Payoff? — Donald J. Trump (@realDonaldTrump) October 15, 2019
+
+Using the content of the tweet, your model should give the highest score to the veriefied claim, that matches the tweet in the [Qrels file](#qrels-file). In this case the verified claim is:
+
+> __vclaim_id__: 115 <br>
+> __vclaim__: ABC News mistakenly aired a video from a Kentucky gun range during its coverage of Turkey's attack on northern Syria in October 2019.
+
+Example of top 5 ranked verfied claims from the baseline model in this repository:
+| vclaim | score |
+| --- | --- |
+| ABC News mistakenly aired a video from a Kentucky gun range during its coverage of Turkey's attack on northern Syria in October 2019. | 21.218384 |  
+| In a speech to U.S. military personnel, President Trump said if soldiers were real patriots, they wouldn't take a pay raise. | 19.962847 |
+| Former President Barack Obama tweeted: "Ask Ukraine if they found my birth certificate." | 19.414398 |
+| Mark Twain said, "Do not fear the enemy, for your enemy can only take your life. It is far better that you fear the media, for they will steal your HONOR." | 16.810490 |
+| Dolly Parton wrote "Jolene" and "I Will Always Love You" in one day.  | 16.005116 |
 
 ## Format checkers
 
