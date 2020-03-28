@@ -1,4 +1,5 @@
 from trectools import TrecRun, TrecQrel, TrecEval
+from lib.logger import logger
 import argparse
 import pandas as pd
 
@@ -27,7 +28,7 @@ def extract_metrics(results, metrics):
             metric_fn = eval(f'results.get_{metric}')
             score['metric'] = metric
             score['@depth'] = depth
-            score['score'] = metric_fn(depth=depth)
+            score['score'] = '{:,.3f}'.format(metric_fn(depth=depth))
             scores = scores.append(score, ignore_index=True)
     return scores
 
@@ -42,7 +43,7 @@ def main(args):
     metrics.loc[:, '@depth'] = metrics.loc[:, '@depth'].replace(str(MAX_DEPTH), 'all')
     if args.output:
         metrics.to_csv(args.output, sep="\t", index=False)
-        logger.info(f"Saved results to {args.output}")
+        logger.info(f"Saved results to file: {args.output}")
     else:
         print(metrics.to_string(index=False))
 
