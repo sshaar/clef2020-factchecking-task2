@@ -56,7 +56,7 @@ def get_score(es, tweet, search_keys, size=10000):
     return df._score
 
 def get_scores(es, tweets, vclaims, search_keys, size):
-    tweets_count, vclaims_count = max(tweets.index), max(vclaims.index)
+    tweets_count, vclaims_count = len(tweets), len(vclaims)
     scores = {}
 
     logger.info(f"Geting RM5 scores for {tweets_count} tweets and {vclaims_count} vclaims")
