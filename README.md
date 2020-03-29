@@ -1,16 +1,17 @@
 # CLEF2020-CheckThat! Task 2: Verified Claim Retrieval
 
-This repository contains the _dataset_, _format checker, scorer and baselines_ for the [CLEF2020-CheckThat! task 2](https://sites.google.com/view/clef2020-checkthat/tasks/task-2-claim-retrieval). <br>
+This repository contains the _data set_, _format checker, scorer and baselines_ for the [CLEF2020-CheckThat! task 2](https://sites.google.com/view/clef2020-checkthat/tasks/task-2-claim-retrieval). <br>
 The task, given an input claim and a set of already verified claims, consists in ranking the already verified claims such that the ones that verify the input claim, or a subclaim in it, are ranked on top. <br>
 The goal of the task is to build a tool to support journalists fact-checkers when trying to determine whether a claim has been already fact-checked.
 
 ````
 FCPD corpus for the CLEF-2020 LAB on "Automatic Identification and Verification of Claims"
-Version 1.0: March 20th, 2020 (Training set batch 1 and Baseline Released)
+Version 2.0: March 29th, 2020 (Training and dev set batch 2 and Baseline Released)
 ````
 
-This file contains the basic information regarding the CLEF2020-CheckThat! Task 2 dataset provided for the CLEF2020-CheckThat! Lab on "Automatic Identification and Verification of Claims".
-The current version of the data (1.0, March 20th, 2020) corresponds to the release of a first batch of the training data set.
+This file contains the basic information regarding the CLEF2020-CheckThat! Task 2 data set provided for the CLEF2020-CheckThat! Lab on "Automatic Identification and Verification of Claims".
+
+The current version of the data (2.0, March 29th, 2020) corresponds to the release of a second batch of the training and dev data.
 The test set will be released on May 1st, 2020.
 
 All changes and updates on these data sets and tools are reported in Section 1 of this document.
@@ -40,6 +41,7 @@ TBA
 ## List of Versions
 
 * __v1.0 [2020/03/20]__ - Batch 1 of the training data: 626 Tweets and 518 already verified claims.
+* __v2.0 [2020/03/29]__ - Batch 2 of the training data: 1003 Tweets and 784 already verified claims.
 
 ## Contents of the Repository
 
@@ -48,12 +50,15 @@ We provide the following files:
 * Main folder: [data](data)
   * [verified_claims.docs.tsv](data/verified_claims.docs.tsv) <br/>
   Contains all the verified claims used for fact checking released with the version 1.0
-  * Subfolder [/train](data/train)
-  Contains all training data released with the version 1.0
-    * [tweets](data/train/tweets.queries.tsv)
+  * Subfolder [/train](data/train) </br>
+  Contains all training data released with the version 1.0 and 2.0
+    * [tweets](data/train/tweets.queries.tsv) </br>
       Contains information for training tweets (file format described in section [Queries file](#queries-file)).
-    * [tweet-vclaim-pairs.qrels](data/train/tweet-vclaim-pairs.qrels)
+    * [tweet-vclaim-pairs.qrels](data/train/tweet-vclaim-pairs.qrels) </br>
      Contains the correct pairing between the input tweet and verified claims (file format described in section [Qrels file](#qrels-file))
+  * Subfolder [/dev](data/dev) </br> Contains dev data released with the version 2.0. Has the same structure as [/train](data/train).
+    * [tweets](data/dev/tweets.queries.tsv)
+    * [tweet-vclaim-pairs.qrels](data/dev/tweet-vclaim-pairs.qrels)
   * [README.md](README.md) <br/>
     this file
 
@@ -62,15 +67,17 @@ We provide the following files:
 
 The format used in the task is inspired from [Text REtrieval Conference (TREC)](https://trec.nist.gov/)'s campaigns for information retrieval (a description of the TREC format can be found [here](https://github.com/joaopalotti/trectools#file-formats)).
 
-The datasets are TAB separated csv files.
+The data sets are TAB separated csv files.
 The text encoding for all files is UTF-8.
+
+The data seta is separated into train and dev splits. They may be used as is or they can be combined and used with  cross-validation. It isentirely  upto the participants how the given train and dev data will be managed.
 
 ### Already Verified Claims
 
 All the verified claims that will be used for both training and test are found in file (data/verified_claims.qrels.tsv).
 The file has the following format:
 
-> vclaim_id <TAB> vclaim <TAB> title 
+> vclaim_id <TAB> vclaim <TAB> title
 
 where <br>
 
@@ -89,7 +96,7 @@ Example:
 
 ### Queries file
 
-TAB separated file with the input tweets. 
+TAB separated file with the input tweets.
 A row of the file has the following format
 
 > tweet_id <TAB> tweet_content
@@ -102,7 +109,7 @@ where: <br>
 Example: <br/>
 | tweet_id | tweet_content |
 | --- | --- |
-| 8 | im screaming. google featured a hoax article that claims Minecraft is being shut down in 2020 pic.twitter.com/ECRqyfc8mI — Makena Kelly (@kellymakena) January 2, 2020 | 
+| 8 | im screaming. google featured a hoax article that claims Minecraft is being shut down in 2020 pic.twitter.com/ECRqyfc8mI — Makena Kelly (@kellymakena) January 2, 2020 |
 | 335  | BREAKING: Footage in Honduras giving cash 2 women & children 2 join the caravan & storm the US border @ election time. Soros? US-backed NGOs? Time to investigate the source! pic.twitter.com/5pEByiGkkN — Rep. Matt Gaetz (@RepMattGaetz) October 17, 2018 |
 | 622 | y’all really joked around so much that tide put their tide pods in plastic boxes…smh pic.twitter.com/Z44efALcX5 — ㅤnavid (@NavidHasan\_) January 13, 2018 |
 |...
@@ -136,7 +143,7 @@ Example:
 
 ### Results File
 
-Each row of the result file is related to a pair _tweet_ and _verified_claim_ and intuitively indicates the ranking of the verified claim with respect to the input tweet. 
+Each row of the result file is related to a pair _tweet_ and _verified_claim_ and intuitively indicates the ranking of the verified claim with respect to the input tweet.
 Each row has the following format:
 >tweet_id <TAB> 0 <TAB> vclaim_id <TAB> rank <TAB> score <TAB> tag
 
@@ -150,7 +157,7 @@ where <br>
 * tag: is a string identifier of the team.
 
  For example:
-|tweet_id  |  Q0  |  vclaim_id  |  rank  |  score  | tag | 
+|tweet_id  |  Q0  |  vclaim_id  |  rank  |  score  | tag |
 | --- | --- | --- | --- | --- | --- |
 | 359 | Q0 | 303  | 1 | 1.1086285 | elastic |
 | 476|Q0| 292|1|  4.680018|   elastic
@@ -166,7 +173,7 @@ Otherwise the scorer will not score this result file.
 
 The following is an example ranking of verified claims for given tweet.
 
-Let's take random tweet from the dataset:
+Let's take random tweet from the data set:
 > __tweet_id__:  251 <br>
 > __tweet_content__: A big scandal at @ABC News. They got caught using really gruesome FAKE footage of the Turks bombing in Syria. A real disgrace. Tomorrow they will ask softball questions to Sleepy Joe Biden’s son, Hunter, like why did Ukraine & China pay you millions when you knew nothing? Payoff? — Donald J. Trump (@realDonaldTrump) October 15, 2019
 
@@ -178,7 +185,7 @@ Using the content of the tweet, your model should give the highest score to the 
 Example of top 5 ranked verfied claims from the baseline model in this repository:
 | vclaim | score |
 | --- | --- |
-| ABC News mistakenly aired a video from a Kentucky gun range during its coverage of Turkey's attack on northern Syria in October 2019. | 21.218384 |  
+| ABC News mistakenly aired a video from a Kentucky gun range during its coverage of Turkey's attack on northern Syria in October 2019. | 21.218384 |
 | In a speech to U.S. military personnel, President Trump said if soldiers were real patriots, they wouldn't take a pay raise. | 19.962847 |
 | Former President Barack Obama tweeted: "Ask Ukraine if they found my birth certificate." | 19.414398 |
 | Mark Twain said, "Do not fear the enemy, for your enemy can only take your life. It is far better that you fear the media, for they will steal your HONOR." | 16.810490 |
@@ -196,14 +203,17 @@ The scorer reports also R-Precision, Average Precision, Reciprocal Rank, Precisi
 You can use these repos as reference for the evaluation, https://github.com/joaopalotti/trectools and https://github.com/usnistgov/trec_eval.
 
 Before using the scorers or running the baseline, make sure you have all python packages in requirements.txt installed.
+
 If you have [pipenv](https://github.com/pypa/pipenv) installed, one way to do it is by using the following command:
 > pipenv install -r requirements.txt --skip-lock <br>
 > pipenv shell
 
-The scripts [evaluate.py](/evaluate.py) evaluates a submission. 
+The scripts [evaluate.py](/evaluate.py) evaluates a submission.
 Example:
 
-> python3 evaluate.py -s \<prediction-scores-file\> -g data/train/tweet-vclaim-pairs.qrels <br/>
+> python3 evaluate.py -s \<results-file\> -g data/dev/tweet-vclaim-pairs.qrels <br/>
+
+The [results file](#results-file) contains the predictions of the model.
 
 ## Baseline
 
@@ -211,16 +221,16 @@ To use the Elastic Search baseline you need to have a locally running Elastic Se
 You can follow [this](https://www.elastic.co/guide/en/elasticsearch/reference/current/getting-started-install.html) article for Elastic Search installation. You can then run elasticsearch using the following command:
 > /path/to/elasticsearch
 
-Alternatively, if you have docker installed, you can run elasticsearch using this command:
+Alternatively, if you have docker installed, you can run elasticsearch u:Wusing this command:
 > docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.6.1
 
 Once you have Elastic Search running you can run the baseline script using the following:
 
-> python3 elastic_search_baseline.py --vclaims data/verified_claims.docs.tsv --tweets data/train/tweets.queries.tsv --predict-file <prediction-scores-file> <br/>
+> python3 elastic_search_baseline.py --vclaims data/verified_claims.docs.tsv --tweets data/dev/tweets.queries.tsv --predict-file \<results-file\> <br/>
 
 ## Licensing
 
-  These datasets are free for general research use.
+  These data sets are free for general research use.
 
 ## Credits
 
