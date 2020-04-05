@@ -166,8 +166,7 @@ where <br>
 | 174|Q0| 408|1|  0.98045605| elastic
 | ...
 
-Your result file **MUST have at most 1,000 rows (each one referring to one verified claim) per input tweet**.
-Otherwise the scorer will not score this result file.
+Your result file **MUST** have at most 1 unique pair of tweet_id and vclaim_id. You can skip pairs if you deem them not relevant.
 
 ## Example Ranking
 
