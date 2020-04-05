@@ -25,7 +25,7 @@ def check_format(preditions_file_path):
                 error = check(line)
                 if error is not None:
                     return f'{error} on line {line_no} in file: {preditions_file_path}'
-    return 'Format is ok'
+    return
 
 def parse_args():
     parser = argparse.ArgumentParser()

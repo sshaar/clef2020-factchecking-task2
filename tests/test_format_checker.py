@@ -48,7 +48,7 @@ class TestFormatChecker(unittest.TestCase):
     def test_format_ok(self):
         test_file = os.path.join(TEST_DIR, 'data/ok.tsv')
         errors = check_format(test_file)
-        self.assertEqual(errors, "Format is ok")
+        self.assertEqual(errors, None)
 
 if __name__ == '__main__':
     unittest.main()
