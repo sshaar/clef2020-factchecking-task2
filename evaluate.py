@@ -1,5 +1,6 @@
 from trectools import TrecRun, TrecQrel, TrecEval
 from lib.logger import logger
+from lib.color import bcolors
 from lib.format_checker import check_format
 import argparse
 import pandas as pd
@@ -36,11 +37,11 @@ def extract_metrics(results, metrics):
 def main(args):
     error = check_format(args.scores)
     if error:
-        print("Format check: Failed")
-        print(error)
+        print(f"Format check: {bcolors.FAIL}Failed{bcolors.ENDC}")
+        print(f"Cause: {bcolors.BOLD}{error}{bcolors.ENDC}")
         return
     else:
-        print("Format check: Passed")
+        print(f"Format check: {bcolors.OKGREEN}Passed{bcolors.ENDC}")
 
     gold_labels = TrecQrel(args.gold_labels)
     prediction = TrecRun(args.scores)
