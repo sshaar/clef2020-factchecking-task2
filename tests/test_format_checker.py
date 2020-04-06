@@ -38,7 +38,7 @@ class TestFormatChecker(unittest.TestCase):
     def test_duplicate_pairs(self):
         test_file = os.path.join(TEST_DIR, 'data/duplicate_pairs.tsv')
         errors = check_format(test_file)
-        self.assertEqual(errors, f"Duplicate pair of tweet_id and vclaim_id on line 3 in file: {test_file}")
+        self.assertEqual(errors, f"Duplication of pair(tweet_id=93, vclaim_id=695) on lines 2 and 3 in file: {test_file}")
 
     def test_score_not_float(self):
         test_file = os.path.join(TEST_DIR, 'data/score_not_float.tsv')
