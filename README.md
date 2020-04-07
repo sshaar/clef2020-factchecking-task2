@@ -192,7 +192,11 @@ Example of top 5 ranked verfied claims from the baseline model in this repositor
 
 ## Format checkers
 
-TBA
+The format checker verifies that the generated results file from your model complies with the expected format. To launch it run:
+
+python3 lib/format_checker.py --model-prediction <path_to_your_results_file>
+
+Note that the checker can not verify whether the prediction file you submit contain all lines / claims), because it does not have access to the corresponding gold file.
 
 ## Evaluation metrics and Scorers
 
