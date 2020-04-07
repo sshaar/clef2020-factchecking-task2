@@ -220,6 +220,8 @@ Example:
 
 The [results file](#results-file) contains the predictions of the model.
 
+__Note__: The metric _reciprocal_rank_ in the output of the evaluation script corresponds to Mean reciprocal rank.
+
 ## Baseline
 
 To use the Elastic Search baseline you need to have a locally running Elastic Search instance.
