@@ -1,9 +1,12 @@
-from trectools import TrecRun, TrecQrel, TrecEval
-from lib.logger import logger
-from lib.color import bcolors
-from lib.format_checker import check_format
+import sys
 import argparse
 import pandas as pd
+from trectools import TrecRun, TrecQrel, TrecEval
+from os.path import join, dirname, abspath
+
+sys.path.append(join(dirname(abspath(__file__)), 'lib'))
+from logger import logger
+from format_checker import run_checks
 
 METRICS = ['map', 'precision', 'reciprocal_rank']
 MAX_DEPTH = 10000

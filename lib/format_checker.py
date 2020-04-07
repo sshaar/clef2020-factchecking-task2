@@ -1,8 +1,7 @@
 import re
 import argparse
 from functools import partial
-
-from lib.logger import logger
+from color import bcolors
 
 COLUMNS = ['qid', 'Q0', 'docno', 'rank', 'score', 'tag']
 
