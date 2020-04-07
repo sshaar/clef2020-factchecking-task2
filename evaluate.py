@@ -38,14 +38,9 @@ def extract_metrics(results, metrics):
     return scores
 
 def main(args):
-    error = check_format(args.scores)
-    if error:
-        print(f"Format check: {bcolors.FAIL}Failed{bcolors.ENDC}")
-        print(f"Cause: {bcolors.BOLD}{error}{bcolors.ENDC}")
+    format_check_passed = run_checks(args.scores)
+    if not format_check_passed:
         return
-    else:
-        print(f"Format check: {bcolors.OKGREEN}Passed{bcolors.ENDC}")
-
     gold_labels = TrecQrel(args.gold_labels)
     prediction = TrecRun(args.scores)
 

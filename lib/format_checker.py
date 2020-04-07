@@ -35,24 +35,23 @@ def check_format(preditions_file_path):
                 pair_ids[(tweet_id, vclaim_id)] = line_no
     return
 
+def run_checks(prediction_file):
+    error = check_format(prediction_file)
+    if error:
+        print(f"Format check: {bcolors.FAIL}Failed{bcolors.ENDC}")
+        print(f"Cause: {bcolors.BOLD}{error}{bcolors.ENDC}")
+        return False
+    else:
+        print(f"Format check: {bcolors.OKGREEN}Passed{bcolors.ENDC}")
+        return True
+
 def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('--model-prediction', '-m', required=True,
                         help='Path to the file containing the model predictions,\
                               which are supposed to be checked')
-    parser.add_argument('--output', '-o', default=None,
-                        help='Output file with errors from the prediction file.\
-                             If not specified, prints output in stdout.')
     return parser.parse_args()
-
-def main(args):
-    errors = check_format(args.model_prediction)
-    if args.output:
-        # SAVE
-        logger.info(f"Saved results to file: {args.output}")
-    else:
-        print(errors)
 
 if __name__=='__main__':
     args = parse_args()
-    main(args)
+    run_checks(args.model_prediction)
