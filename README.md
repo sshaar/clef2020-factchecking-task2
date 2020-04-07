@@ -196,7 +196,9 @@ The format checker verifies that the generated results file from your model comp
 
 python3 lib/format_checker.py --model-prediction <path_to_your_results_file>
 
-Note that the checker can not verify whether the prediction file you submit contain all lines / claims), because it does not have access to the corresponding gold file.
+__Note__: The checker can't verify whether the prediction file you submit contain all lines/claims, because it does not have access to the corresponding gold file.
+
+__Note__: The python files in this repo require a version of python that is at least 3.6.
 
 ## Evaluation metrics and Scorers
 
