@@ -3,6 +3,7 @@
 This repository contains the _data set_, _format checker, scorer and baselines_ for the [CLEF2020-CheckThat! task 2](https://sites.google.com/view/clef2020-checkthat/tasks/task-2-claim-retrieval). <br>
 The task, given an input claim and a set of already verified claims, consists in ranking the already verified claims such that the ones that verify the input claim, or a subclaim in it, are ranked on top. <br>
 The goal of the task is to build a tool to support journalists fact-checkers when trying to determine whether a claim has been already fact-checked.
+This task is part of the [CLEF2020-CheckThat!](https://sites.google.com/view/clef2020-checkthat/) lab. For more information about deadlines , updates and other related task visit the [site](https://sites.google.com/view/clef2020-checkthat/) of the lab.
 
 ````
 FCPD corpus for the CLEF-2020 LAB on "Automatic Identification and Verification of Claims"
