@@ -12,7 +12,7 @@ Version 3.0: May 11th, 2020 (Training and dev set batch 3 and Baseline Released)
 This file contains the basic information regarding the CLEF2020-CheckThat! Task 2 data set provided for the CLEF2020-CheckThat! Lab on "Automatic Identification and Verification of Claims".
 
 The current version of the data (3.0, May 11th, 2020) corresponds to the release of a third batch of the training and dev data.
-The test set will be released on May 1st, 2020.
+The test set will be released on May 25st, 2020.
 
 All changes and updates on these data sets and tools are reported in Section 1 of this document.
 
