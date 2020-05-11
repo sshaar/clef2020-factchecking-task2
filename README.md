@@ -6,12 +6,12 @@ The goal of the task is to build a tool to support journalists fact-checkers whe
 
 ````
 FCPD corpus for the CLEF-2020 LAB on "Automatic Identification and Verification of Claims"
-Version 2.0: March 29th, 2020 (Training and dev set batch 2 and Baseline Released)
+Version 3.0: May 11th, 2020 (Training and dev set batch 3 and Baseline Released)
 ````
 
 This file contains the basic information regarding the CLEF2020-CheckThat! Task 2 data set provided for the CLEF2020-CheckThat! Lab on "Automatic Identification and Verification of Claims".
 
-The current version of the data (2.0, March 29th, 2020) corresponds to the release of a second batch of the training and dev data.
+The current version of the data (3.0, May 11th, 2020) corresponds to the release of a third batch of the training and dev data.
 The test set will be released on May 1st, 2020.
 
 All changes and updates on these data sets and tools are reported in Section 1 of this document.
@@ -42,6 +42,8 @@ TBA
 
 * __v1.0 [2020/03/20]__ - Batch 1 of the training data: 626 Tweets and 518 already verified claims.
 * __v2.0 [2020/03/29]__ - Batch 2 of the training data: 377 Tweets and 266 already verified claims.
+* __v3.0 [2020/05/11]__ - Batch 3 of the training data: Clean dubious claims. Release 9605 more already verified claims that don't match any tweet.
+
 
 ## Contents of the Repository
 
@@ -75,6 +77,7 @@ The data seta is separated into train and dev splits. They may be used as is or 
 ### Already Verified Claims
 
 All the verified claims that will be used for both training and test are found in file (data/verified_claims.qrels.tsv).
+
 The file has the following format:
 
 > vclaim_id <TAB> vclaim <TAB> title
@@ -93,6 +96,8 @@ Example:
 | 222 | Former U.S. Vice President Joe Biden owns the largest mansion in his state. | Does Joe Biden Own the Largest Mansion in His State? |
 | 503 | "U.S. Sen. Bernie Sanders compared Baltimore to a ""third world country."""  | Did U.S. Sen. Bernie Sanders Say Baltimore Was Like a ‘Third World Country’? |
 | ... |
+
+__Note__: Not all verified claims in the file have a corresponding tweet.
 
 ### Queries file
 
