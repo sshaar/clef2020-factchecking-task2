@@ -41,9 +41,9 @@ TBA
 
 ## List of Versions
 
-* __v1.0 [2020/03/20]__ - Batch 1 of the training data: 626 Tweets and 518 already verified claims.
-* __v2.0 [2020/03/29]__ - Batch 2 of the training data: 377 Tweets and 266 already verified claims.
-* __v3.0 [2020/05/11]__ - Batch 3 of the training data: Clean dubious claims. Release 9605 more already verified claims that don't match any tweet.
+* __v1.0 [2020/03/20]__ - Version 1 of the training data: 626 Tweets and 518 already verified claims.
+* __v2.0 [2020/03/29]__ - Version 2 of the training data: 1,003 Tweets and 784 already verified claims.
+* __v3.0 [2020/05/11]__ - Version 3 of the training data: 1,003 Tweets and 10,373 already verified claims. Fixed some labels, in addition to extending the dataset.
 
 
 ## Contents of the Repository
