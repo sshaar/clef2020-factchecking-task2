@@ -13,7 +13,6 @@ May 26th, 2020 (Test Data Released)
 This file contains the basic information regarding the CLEF2020-CheckThat! Task 2 data set provided for the CLEF2020-CheckThat! Lab on "Automatic Identification and Verification of Claims".
 
 The current version of the data is the release of the test data.
-The test set will be released on May 25st, 2020.
 
 All changes and updates on these data sets and tools are reported in Section 1 of this document.
 
@@ -44,7 +43,7 @@ TBA
 * __v1.0 [2020/03/20]__ - Version 1 of the training data: 626 Tweets and 518 already verified claims.
 * __v2.0 [2020/03/29]__ - Version 2 of the training data: 1,003 Tweets and 784 already verified claims.
 * __v3.0 [2020/05/11]__ - Version 3 of the training data: 1,003 Tweets and 10,373 already verified claims. Fixed some labels, in addition to extending the dataset.
-* __Test [2020/05/26]__ - Release of [test input](test-input/tweets.queries.tsv): 200 Tweets refering to vclaims that are already present in the data.
+* __Test [2020/05/26]__ - Release of [test input](test-input/tweets.queries.tsv): 200 Tweets to be matched against the 10,373 already verified claims released with version v.3.0 of the data.
 
 ## Contents of the Repository
 
