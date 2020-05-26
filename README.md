@@ -7,7 +7,7 @@ This task is part of the [CLEF2020-CheckThat!](https://sites.google.com/view/cle
 
 ````
 FCPD corpus for the CLEF-2020 LAB on "Automatic Identification and Verification of Claims"
-Version 3.0: May 11th, 2020 (Training and dev set batch 3 and Baseline Released)
+May 26th, 2020 (Test Data Released)
 ````
 
 This file contains the basic information regarding the CLEF2020-CheckThat! Task 2 data set provided for the CLEF2020-CheckThat! Lab on "Automatic Identification and Verification of Claims".
@@ -44,14 +44,19 @@ TBA
 * __v1.0 [2020/03/20]__ - Version 1 of the training data: 626 Tweets and 518 already verified claims.
 * __v2.0 [2020/03/29]__ - Version 2 of the training data: 1,003 Tweets and 784 already verified claims.
 * __v3.0 [2020/05/11]__ - Version 3 of the training data: 1,003 Tweets and 10,373 already verified claims. Fixed some labels, in addition to extending the dataset.
-
+* __Test [2020/05/26]__ - Release of [test input](test-input/tweets.queries.tsv): 200 Tweets refering to vclaims that are already present in the data.
 
 ## Contents of the Repository
 
 We provide the following files:
 
+* Test input folder: [test-input](test-input)
+  *  [test-tweets](test-input/tweets.queries.tsv)
+
 * Main folder: [data](data)
+
   * [verified_claims.docs.tsv](data/verified_claims.docs.tsv) <br/>
+
   Contains all the verified claims used for fact checking released with the version 1.0
   * Subfolder [/train](data/train) </br>
   Contains all training data released with the version 1.0 and 2.0
