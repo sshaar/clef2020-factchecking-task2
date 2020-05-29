@@ -27,7 +27,7 @@ Example:
 
 NOTE: The order in which you output your predictions is irrelevant as these would be sorted by the scorer by your predicted score.
 
-The scores in the example submission were generated using the baseline given in the[baseline script](../elastic_search_baseline.py).
+The scores in the example submission were generated using the baseline given in the [baseline script](../elastic_search_baseline.py).
 
 We have implemented [format checker](../lib/format_checker.py), but it is still the responsibility of the participants to double-check that their submissions are correct.
 
