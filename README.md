@@ -50,7 +50,9 @@ TBA
 We provide the following files:
 
 * Test input folder: [test-input](test-input)
-  *  [test-tweets](test-input/tweets.queries.tsv)
+  * [Submission README](test-input/README.md)
+  * [test-tweets](test-input/tweets.queries.tsv)
+  * [Example submission scores](test-input/example-submission-scores.tsv)
 
 * Main folder: [data](data)
 
