@@ -7,7 +7,7 @@ This task is part of the [CLEF2020-CheckThat!](https://sites.google.com/view/cle
 
 ````
 FCPD corpus for the CLEF-2020 LAB on "Automatic Identification and Verification of Claims"
-May 26th, 2020 (Test Data Released)
+Jun 8th, 2020 (Test Data Released)
 ````
 
 This file contains the basic information regarding the CLEF2020-CheckThat! Task 2 data set provided for the CLEF2020-CheckThat! Lab on "Automatic Identification and Verification of Claims".
@@ -44,6 +44,7 @@ TBA
 * __v2.0 [2020/03/29]__ - Version 2 of the training data: 1,003 Tweets and 784 already verified claims.
 * __v3.0 [2020/05/11]__ - Version 3 of the training data: 1,003 Tweets and 10,373 already verified claims. Fixed some labels, in addition to extending the dataset.
 * __Test [2020/05/26]__ - Release of [test input](test-input/tweets.queries.tsv): 200 Tweets to be matched against the 10,373 already verified claims released with version v.3.0 of the data.
+* __v4.0 [2020/06/08]__ - Release the gold labels of test tweets.
 
 ## Contents of the Repository
 
@@ -68,6 +69,9 @@ We provide the following files:
   * Subfolder [/dev](data/dev) </br> Contains dev data released with the version 2.0. Has the same structure as [/train](data/train).
     * [tweets](data/dev/tweets.queries.tsv)
     * [tweet-vclaim-pairs.qrels](data/dev/tweet-vclaim-pairs.qrels)
+  * Subfolder [/test](data/test) </br> Contains test data released with the version 4.0. Has the same structure as [/train](data/train).
+    * [tweets](data/test/tweets.queries.tsv)
+    * [tweet-vclaim-pairs.qrels](data/test/tweet-vclaim-pairs.qrels)
   * [README.md](README.md) <br/>
     this file
 
