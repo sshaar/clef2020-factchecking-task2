@@ -52,28 +52,32 @@ We provide the following files:
 
 * Test input folder: [test-input](test-input)
   * [Submission README](test-input/README.md)
-  * [test-tweets](test-input/tweets.queries.tsv)
+  * [test-tweets](test-input/test-input.zip)
+  * [test-gold](test-input/test-input.zip)
   * [Example submission scores](test-input/example-submission-scores.tsv)
 
 * Main folder: [data](data)
-
-  * [verified_claims.docs.tsv](data/verified_claims.docs.tsv) <br/>
-
-  Contains all the verified claims used for fact checking released with the version 1.0
-  * Subfolder [/train](data/train) </br>
-  Contains all training data released with the version 1.0 and 2.0
-    * [tweets](data/train/tweets.queries.tsv) </br>
-      Contains information for training tweets (file format described in section [Queries file](#queries-file)).
-    * [tweet-vclaim-pairs.qrels](data/train/tweet-vclaim-pairs.qrels) </br>
-     Contains the correct pairing between the input tweet and verified claims (file format described in section [Qrels file](#qrels-file))
-  * Subfolder [/dev](data/dev) </br> Contains dev data released with the version 2.0. Has the same structure as [/train](data/train).
-    * [tweets](data/dev/tweets.queries.tsv)
-    * [tweet-vclaim-pairs.qrels](data/dev/tweet-vclaim-pairs.qrels)
-  * Subfolder [/test](data/test) </br> Contains test data released with the version 4.0. Has the same structure as [/train](data/train).
-    * [tweets](data/test/tweets.queries.tsv)
-    * [tweet-vclaim-pairs.qrels](data/test/tweet-vclaim-pairs.qrels)
-  * [README.md](README.md) <br/>
-    this file
+  * Subfolder: [v2](data/v2.zip)
+    * [verified_claims.docs.tsv](data/v2.zip) <br/>
+    Contains all the verified claims used for fact checking released with the version 2.0 and 1.0.
+    
+    * Subfolder [/train](data/v2.zip) </br>
+    Contains all training data released with the version 1.0 and 2.0
+      * [tweets](data/v2.zip) </br>
+        Contains information for training tweets (file format described in section [Queries file](#queries-file)).    
+      * [tweet-vclaim-pairs.qrels](data/v2.zip) </br>
+        Contains the correct pairing between the input tweet and verified claims (file format described in section [Qrels file](#qrels-file))
+        
+    * Subfolder [/dev](data/v2.zip) </br> 
+    Contains dev data released with the version 2.0. Has the same structure as [/train](data/v2.zip).
+      * [tweets](data/v1.zip)
+      * [tweet-vclaim-pairs.qrels](data/v2.zip)
+      
+ * Subfolder: [v3](data/v3.zip)</br>
+ Similar structure to subfolder [v2](data/v3.zip)
+     
+ * [README.md](README.md) <br/>
+ this file
 
 
 ## Data Format
