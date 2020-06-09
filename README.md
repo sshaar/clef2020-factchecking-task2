@@ -73,8 +73,8 @@ We provide the following files:
       * [tweets](data/v1.zip)
       * [tweet-vclaim-pairs.qrels](data/v2.zip)
       
- * Subfolder: [v3](data/v3.zip)</br>
- Similar structure to subfolder [v2](data/v3.zip)
+  * Subfolder: [v3](data/v3.zip)</br>
+   Similar structure to subfolder [v2](data/v3.zip)
      
  * [README.md](README.md) <br/>
  this file
