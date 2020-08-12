@@ -33,6 +33,7 @@ __Table of contents:__
   - [Baseline](#baseline)
   - [Licensing](#licensing)
   - [Credits](#credits)
+  - [Citation](#citation)
 
 ## Evaluation Results
 
@@ -257,7 +258,7 @@ Once you have Elastic Search running you can run the baseline script using the f
 
 ## Licensing
 
-  These data sets are free for general research use.
+These data sets are free for general research use.
 
 ## Credits
 
@@ -275,3 +276,89 @@ Task website: https://sites.google.com/view/clef2020-checkthat/tasks/task-2-clai
 
 Contact:   clef-factcheck@googlegroups.com
 
+## Citation
+
+You can find the overview paper on the CLEF2020-CheckThat! Lab in the papers papers, "Overview of CheckThat! 2020 --- Automatic Identification and
+Verification of Claims in Social Media" (see citation bellow) in this [link](https://arxiv.org/pdf/2007.07997.pdf), and "CheckThat! at CLEF 2020: Enabling the Automatic Identification and Verification of Claims in Social Media" (see citation bellow) in this [link](https://arxiv.org/pdf/2001.08546.pdf). 
+
+You can find CLEF2020-CheckThat! Task 2 details published in the paper "Overview of the CLEF-2020 CheckThat! Lab on Automatic 
+Identification and Verification of Claims in Social Media: English tasks" (see citation bellow).
+
+Further work on the task using the dataset released in the CLEF2020-CheckThat! Task 2 was published in "That is a Known Lie: Detecting Previously Fact-Checked Claims". You can find the paper in this link, https://arxiv.org/pdf/2005.06058.pdf. 
+
+```
+@InProceedings{clef-checkthat:2020,
+ author = "Barr\'{o}n-Cede{\~n}o, Alberto and
+    Elsayed, Tamer and
+    Nakov, Preslav and
+    {Da San Martino}, Giovanni and
+    Hasanain, Maram and   
+    Suwaileh, Reem and
+    Haouari, Fatima and
+    Babulkov, Nikolay and
+    Hamdan, Bayan and
+    Nikolov, Alex and   
+    Shaar, Shaden and
+    Ali, {Zien Sheikh}",
+ title  = "{Overview of CheckThat! 2020} --- Automatic Identification and
+Verification of Claims in Social Media",
+ year = {2020},
+ booktitle = "Proceedings of the 11th International Conference of the CLEF Association: Experimental IR Meets Multilinguality, Multimodality, and Interaction",
+ series = {CLEF~'2020},
+ address = {Thessaloniki, Greece},
+ nopages="--",
+}
+
+@InProceedings{clef-checkthat-en:2020,
+ author = "Shaar, Shaden and
+    Nikolov, Alex and
+    Babulkov, Nikolay and
+    Alam, Firoj and
+    Barr\'{o}n-Cede{\~n}o, Alberto and
+    Elsayed, Tamer and
+    Hasanain, Maram and   
+    Suwaileh, Reem and
+    Haouari, Fatima and
+    {Da San Martino}, Giovanni and
+    Nakov, Preslav",
+  title = "Overview of the {CLEF-2020 CheckThat!} Lab on Automatic Identification and Verification of Claims in Social Media: {E}nglish tasks",
+  booktitle = "Working Notes of CLEF 2020---Conference and Labs of the Evaluation Forum",
+  series = {CLEF~'2020},
+  address = {Thessaloniki, Greece},
+  year = {2020}
+}
+
+@InProceedings{CheckThat:ECIR2020,
+  author    = {Alberto Barr{\'{o}}n{-}Cede{\~{n}}o and
+               Tamer Elsayed and
+               Preslav Nakov and
+               Giovanni Da San Martino and
+               Maram Hasanain and
+               Reem Suwaileh and
+               Fatima Haouari},
+  title     = {CheckThat! at {CLEF} 2020: Enabling the Automatic Identification and Verification of Claims in Social Media},
+    booktitle = {Proceedings of the 42nd European Conference on Information Retrieval},
+    series = {ECIR~'19},
+    pages = {499--507},
+    address   = {Lisbon, Portugal},
+    month     = {April},
+    year      = {2020},
+}
+
+@inproceedings{shaar-etal-2020-known,
+    title = "That is a Known Lie: Detecting Previously Fact-Checked Claims",
+    author = "Shaar, Shaden  and
+      Babulkov, Nikolay  and
+      Da San Martino, Giovanni  and
+      Nakov, Preslav",
+    booktitle = "Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics",
+    series = {ACL~'20},
+    month = jul,
+    year = "2020",
+    address = "Online",
+    publisher = "Association for Computational Linguistics",
+    url = "https://www.aclweb.org/anthology/2020.acl-main.332",
+    pages = "3607--3618",
+}    
+
+```
